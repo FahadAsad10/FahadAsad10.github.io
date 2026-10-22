@@ -1,460 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Fahad Asad — Developer & Creator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fahad Asad Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Fahad Asad: thumbnail designer, scriptwriter and developer building AI-powered web apps.">
+<link rel="icon" href="favicon.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <style>
-  :root {
-    --bg: #0E0E10; --surface: #18181B; --surface-2: #1F1F23;
-    --text: #F5F5F7; --text-dim: #9B9BA3;
-    --accent: #FF3366; --accent-2: #FFD23F; --border: #2A2A2F;
-    box-sizing: border-box;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  * { box-sizing: border-box; }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
-  body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; line-height: 1.5; overflow-x: hidden; }
-  .display { font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: 0.01em; }
-  .mono { font-family: 'JetBrains Mono', monospace; }
-  a { color: inherit; }
-  button { font-family: inherit; }
-  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+/* Layout: dark cinematic single column. Glowing hero + terminal card, ticker, thumbnail reel, script accordion, AI project bento, about timeline, contact panel */
+:root {
+  --bg: #05080d;
+  --bg-2: #0a1018;
+  --glass: rgba(255,255,255,.035);
+  --glass-hi: rgba(255,255,255,.07);
+  --line: rgba(160,220,255,.12);
+  --ink: #e9f1f7;
+  --muted: #8a9aab;
+  --cyan: #2ff3d6;
+  --blue: #4f8cff;
+  --violet: #9b7bff;
+  --amber: #ffb547;
+  --display: "Syne", "Arial Black", system-ui, sans-serif;
+  --body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1rem; line-height: 1.65; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+img { max-width: 100%; }
+a { color: inherit; }
+button { font-family: inherit; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.inner { max-width: 1180px; margin: 0 auto; }
 
-  /* cursor glow */
-  #cursor-glow {
-    position: fixed; width: 420px; height: 420px; border-radius: 50%; pointer-events: none; z-index: 1;
-    background: radial-gradient(circle, rgba(255,51,102,0.08), transparent 70%);
-    transform: translate(-50%,-50%); left: -999px; top: -999px; transition: opacity .3s ease;
-  }
-  @media (max-width: 900px) { #cursor-glow { display: none; } }
+/* ambient */
+.aurora { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.aurora i { position: absolute; border-radius: 50%; filter: blur(90px); animation: drift 22s ease-in-out infinite alternate; }
+.aurora i:nth-child(1) { width: 46vw; height: 46vw; left: -10vw; top: -14vw; background: var(--cyan); opacity: .14; }
+.aurora i:nth-child(2) { width: 40vw; height: 40vw; right: -12vw; top: 10vh; background: var(--violet); opacity: .16; animation-duration: 28s; }
+.aurora i:nth-child(3) { width: 36vw; height: 36vw; left: 30vw; top: 80vh; background: var(--blue); opacity: .1; animation-duration: 34s; }
+@keyframes drift { to { transform: translate(6vw, 8vh) scale(1.15); } }
+.grid-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px; -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%); mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%); opacity: .5; }
+.page { position: relative; z-index: 1; }
 
-  nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(14,14,16,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
-  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .nav-logo { font-family: 'Anton', sans-serif; font-size: 20px; width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-  .nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
-  .nav-links a { text-decoration: none; color: var(--text-dim); transition: color .15s ease; position: relative; }
-  .nav-links a:hover, .nav-links a.active { color: var(--text); }
-  .nav-links a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -21px; height: 2px; background: var(--accent); }
-  .nav-social { display: flex; gap: 14px; }
-  .nav-social a { color: var(--text-dim); }
-  .nav-social a:hover { color: var(--accent); }
-  @media (max-width: 780px) { .nav-links { display: none; } }
+/* nav */
+header.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; }
+.nav .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 14px auto 0; max-width: 1180px;
+  padding: 8px 8px 8px 10px; border: 1px solid var(--line); border-radius: 999px;
+  background: rgba(8,12,18,.7); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.logo { font: 800 .95rem var(--display); text-decoration: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--cyan), var(--violet)); color: #04110f; }
+.nav ul { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; }
+.nav ul a { text-decoration: none; color: var(--muted); font-size: .9rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; transition: color .2s, background .2s; }
+.nav ul a:hover, .nav ul a.on { color: var(--ink); background: var(--glass-hi); }
+.hire { font: 700 .85rem var(--body); text-decoration: none; padding: 10px 18px; border-radius: 999px; color: #04110f; background: var(--cyan); box-shadow: 0 0 24px rgba(47,243,214,.35); white-space: nowrap; }
 
-  .hero { min-height: 86vh; display: flex; flex-direction: column; justify-content: center; padding: 60px 0 40px; position: relative; z-index: 2; }
-  .hero-eyebrow { color: var(--text-dim); font-size: 15px; margin-bottom: 14px; }
-  .hero h1 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(56px, 12vw, 148px); line-height: 0.9; margin: 0; }
-  .hero-role { font-size: clamp(20px, 3.4vw, 34px); color: var(--text-dim); margin-top: 10px; min-height: 1.4em; }
-  .hero-role .cursor { color: var(--accent); }
-  .scroll-cue { margin-top: 48px; display: flex; align-items: center; gap: 10px; color: var(--text-dim); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
-  .scroll-cue .line { width: 40px; height: 1px; background: var(--text-dim); animation: pulse-line 1.8s ease-in-out infinite; }
-  @keyframes pulse-line { 0%,100% { opacity: .3; } 50% { opacity: 1; } }
+/* hero */
+.hero { padding-block: 72px 40px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 10px; font: 500 .8rem var(--mono); color: var(--cyan);
+  padding: 7px 14px; border: 1px solid rgba(47,243,214,.3); border-radius: 999px; background: rgba(47,243,214,.06); }
+.pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(47,243,214,.6); } 70% { box-shadow: 0 0 0 10px rgba(47,243,214,0); } 100% { box-shadow: 0 0 0 0 rgba(47,243,214,0); } }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(3rem, 8vw, 6.2rem); line-height: .92; letter-spacing: -.035em; font-weight: 800; margin-top: 22px; }
+.grad { background: linear-gradient(100deg, var(--cyan) 0%, var(--blue) 45%, var(--violet) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.role { font: 500 1.05rem var(--mono); color: var(--muted); margin-top: 22px; min-height: 1.6em; }
+.role .typed { color: var(--ink); }
+.caret { display: inline-block; width: .55em; height: 1.1em; vertical-align: -3px; background: var(--cyan); margin-left: 2px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.lede { font-size: 1.12rem; color: var(--muted); max-width: 54ch; margin: 18px 0 0; }
+.lede b { color: var(--ink); font-weight: 600; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; font: 700 .95rem var(--body); text-decoration: none; padding: 14px 22px; border-radius: 14px; border: 1px solid var(--line); background: var(--glass); color: var(--ink); cursor: pointer; transition: transform .2s, border-color .2s, box-shadow .2s; }
+.btn:hover { transform: translateY(-2px); border-color: rgba(47,243,214,.5); }
+.btn.glow { background: linear-gradient(120deg, var(--cyan), var(--blue)); color: #03101a; border: 0; box-shadow: 0 10px 40px -8px rgba(47,243,214,.55); }
+.socials { display: flex; gap: 8px; margin-top: 28px; flex-wrap: wrap; }
+.socials a { font: 500 .8rem var(--mono); color: var(--muted); text-decoration: none; padding: 7px 12px; border: 1px solid var(--line); border-radius: 10px; transition: color .2s, border-color .2s; }
+.socials a:hover { color: var(--cyan); border-color: rgba(47,243,214,.4); }
 
-  .ticker-bar { background: var(--accent); color: #0E0E10; overflow: hidden; white-space: nowrap; padding: 14px 0; }
-  .ticker-track { display: inline-block; animation: ticker 22s linear infinite; font-family: 'Anton', sans-serif; font-size: 18px; }
-  .ticker-track span { margin: 0 24px; }
-  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* terminal */
+.term { position: relative; border-radius: 18px; background: linear-gradient(180deg, rgba(16,24,34,.94), rgba(8,12,18,.94)); border: 1px solid var(--line); box-shadow: 0 30px 80px -20px rgba(0,0,0,.8), 0 0 60px -20px rgba(79,140,255,.4); overflow: hidden; min-width: 0; }
+.term::before { content: ""; position: absolute; inset: 0; border-radius: 18px; padding: 1px; background: conic-gradient(from var(--a, 0deg), transparent 0 70%, var(--cyan) 80%, var(--violet) 90%, transparent);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: spin 6s linear infinite; pointer-events: none; }
+@property --a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes spin { to { --a: 360deg; } }
+.term .top { display: flex; align-items: center; gap: 7px; padding: 12px 16px; border-bottom: 1px solid var(--line); font: .75rem var(--mono); color: var(--muted); }
+.term .top i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+.term .top i:nth-child(2) { background: #febc2e; } .term .top i:nth-child(3) { background: #28c840; }
+.term .top span { margin-left: auto; }
+.term pre { margin: 0; padding: 20px 22px 24px; font: .84rem/1.75 var(--mono); white-space: pre-wrap; word-break: break-word; color: var(--ink); }
+.k { color: var(--violet); } .s { color: var(--cyan); } .n { color: var(--amber); } .c { color: #5d6e80; } .p { color: var(--cyan); }
 
-  section { padding: 80px 0; border-top: 1px solid var(--border); position: relative; z-index: 2; }
-  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 12px; }
-  .section-head h2 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(30px, 5vw, 46px); margin: 0; }
-  .section-head a.viewall { font-size: 14px; color: var(--accent); text-decoration: none; font-weight: 600; white-space: nowrap; }
-  .section-head a.viewall:hover { text-decoration: underline; }
-  .section-desc { color: var(--text-dim); font-size: 15px; max-width: 60ch; margin: -20px 0 40px; }
+/* facts strip */
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-top: 24px; }
+.fact { background: var(--bg-2); padding: 22px; }
+.fact b { display: block; font: 800 clamp(1.5rem, 3vw, 2.1rem)/1.05 var(--display); }
+.fact span { font: .74rem var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 
-  /* THUMBNAIL MARQUEE + LIGHTBOX */
-  .marquee-wrap { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
-  .marquee-track { display: flex; gap: 18px; width: max-content; animation: scroll-left 34s linear infinite; }
-  .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
-  @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .thumb-card { flex: 0 0 300px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); cursor: pointer; transition: transform .25s ease, border-color .25s ease; }
-  .thumb-card:hover { transform: translateY(-6px) scale(1.02); border-color: var(--accent); }
-  .thumb-card .thumb-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-  .thumb-placeholder { width: 100%; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, var(--surface-2), var(--surface-2) 10px, var(--surface) 10px, var(--surface) 20px); color: var(--text-dim); font-size: 13px; text-align: center; padding: 16px; }
-  .thumb-meta { padding: 14px 16px; }
-  .thumb-meta .tag { font-size: 12px; color: var(--accent-2); margin-bottom: 4px; }
-  .thumb-meta .title { font-size: 15px; font-weight: 600; }
+/* ticker */
+.ticker { margin-top: 64px; overflow: hidden; border-block: 1px solid var(--line); background: linear-gradient(90deg, rgba(47,243,214,.08), rgba(155,123,255,.08)); }
+.ticker .tt { display: flex; width: max-content; animation: scroll 30s linear infinite; padding-block: 16px; }
+.ticker span { font: 800 1.1rem var(--display); letter-spacing: .04em; padding-inline: 22px; white-space: nowrap; }
+.ticker span.star { color: var(--cyan); padding-inline: 0; }
+@keyframes scroll { to { transform: translateX(-50%); } }
 
-  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; display: none; align-items: center; justify-content: center; padding: 40px; }
-  .lightbox.open { display: flex; }
-  .lightbox img { max-width: 100%; max-height: 85vh; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-  .lightbox-close { position: absolute; top: 24px; right: 28px; background: none; border: 1px solid var(--border); color: var(--text); width: 40px; height: 40px; border-radius: 50%; font-size: 20px; cursor: pointer; }
-  .lightbox-close:hover { border-color: var(--accent); color: var(--accent); }
+/* sections */
+section { padding-block: 96px 0; scroll-margin-top: 90px; }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
+.eyebrow { font: 500 .78rem var(--mono); color: var(--cyan); letter-spacing: .12em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--cyan); }
+h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); letter-spacing: -.025em; line-height: 1.02; margin-top: 14px; font-weight: 800; }
+.sub { color: var(--muted); max-width: 60ch; margin: 14px 0 0; }
+.viewall { font: 600 .9rem var(--body); color: var(--cyan); text-decoration: none; white-space: nowrap; padding: 10px 16px; border: 1px solid rgba(47,243,214,.3); border-radius: 12px; }
+.viewall:hover { background: rgba(47,243,214,.08); }
 
-  /* SCRIPTS - expandable */
-  .write-list { display: flex; flex-direction: column; }
-  .write-item { border-bottom: 1px solid var(--border); }
-  .write-item:first-child .write-head { padding-top: 0; }
-  .write-head { padding: 28px 0; display: grid; grid-template-columns: 110px 1fr auto; gap: 24px; align-items: start; cursor: pointer; }
-  .write-item .tag { color: var(--accent); font-size: 13px; font-weight: 600; }
-  .write-item h3 { margin: 0 0 8px; font-size: 20px; }
-  .write-item p { margin: 0; color: var(--text-dim); font-size: 15px; }
-  .expand-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text-dim); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 16px; transition: transform .25s ease, color .2s ease; flex-shrink: 0; }
-  .write-item.open .expand-btn { transform: rotate(45deg); color: var(--accent); }
-  .write-body { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
-  .write-item.open .write-body { max-height: 600px; }
-  .snippet { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; margin: 0 0 28px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-dim); line-height: 1.7; white-space: pre-wrap; }
-  .snippet .vo { color: var(--accent-2); }
-  @media (max-width: 560px) { .write-head { grid-template-columns: 1fr auto; } .write-head .tag { grid-column: 1 / -1; } }
+/* thumbnails reel */
+.reel { margin-top: 40px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.reel-track { display: flex; gap: 18px; width: max-content; animation: scroll 46s linear infinite; padding-block: 10px; }
+.reel:hover .reel-track { animation-play-state: paused; }
+.thumb { flex: 0 0 340px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); cursor: pointer; padding: 0; color: var(--ink); text-align: left; transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; }
+.thumb:hover { transform: translateY(-6px) scale(1.02); border-color: rgba(47,243,214,.5); box-shadow: 0 20px 50px -18px rgba(47,243,214,.4); }
+.thumb img, .thumb .ph { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.thumb .ph { display: grid; place-items: center; font: .8rem var(--mono); color: var(--muted); text-align: center; padding: 16px;
+  background: radial-gradient(ellipse at 20% 100%, rgba(79,140,255,.35), transparent 60%), radial-gradient(ellipse at 90% 0%, rgba(155,123,255,.3), transparent 55%), var(--bg-2); }
+.thumb .meta { padding: 12px 16px 14px; display: grid; gap: 2px; }
+.thumb .meta small { font: .7rem var(--mono); color: var(--cyan); letter-spacing: .1em; }
+.thumb .meta span { font-weight: 600; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(2,4,8,.92); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); display: grid; place-items: center; padding: 40px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px)); }
+.lightbox img { max-width: 100%; max-height: 85vh; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+.lightbox button { position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--glass-hi); color: var(--ink); font-size: 1.1rem; cursor: pointer; }
 
-  /* CODE - live w/ snippet preview */
-  .code-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-  .code-block { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px; transition: border-color .2s ease, transform .2s ease; }
-  .code-block:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .code-block .path { font-size: 12px; color: var(--accent-2); margin-bottom: 10px; text-transform: uppercase; letter-spacing: .04em; }
-  .code-block h3 { margin: 0 0 8px; font-size: 17px; }
-  .code-block p { margin: 0 0 14px; color: var(--text-dim); font-size: 13.5px; min-height: 40px; }
-  .code-snippet { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-dim); white-space: pre; overflow-x: auto; margin-bottom: 14px; max-height: 120px; }
-  .code-snippet .kw { color: var(--accent); }
-  .code-block a { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 600; }
-  .code-block a:hover { text-decoration: underline; }
-  .code-loading { color: var(--text-dim); font-size: 14px; }
+/* scripts */
+.scripts { margin-top: 40px; display: grid; gap: 12px; }
+.script { border: 1px solid var(--line); border-radius: 16px; background: var(--glass); overflow: hidden; transition: border-color .3s; }
+.script.open { border-color: rgba(47,243,214,.35); }
+.script > button { all: unset; box-sizing: border-box; width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 18px 20px; cursor: pointer; }
+.script > button:focus-visible { outline: 2px solid var(--cyan); outline-offset: -2px; border-radius: 16px; }
+.script .tag { font: 500 .7rem var(--mono); color: var(--violet); letter-spacing: .1em; padding: 4px 8px; border: 1px solid rgba(155,123,255,.35); border-radius: 6px; }
+.script h3 { font: 600 1.05rem var(--body); overflow-wrap: anywhere; }
+.script .plus { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: transform .3s, background .3s; }
+.script.open .plus { transform: rotate(45deg); background: var(--cyan); color: #03101a; }
+.script .body { padding: 0 20px 20px; }
+.snippet { font: .85rem/1.8 var(--mono); white-space: pre-wrap; color: var(--muted); padding: 18px; border-radius: 12px; background: rgba(0,0,0,.35); border-left: 2px solid var(--cyan); max-height: 360px; overflow: auto; }
+.snippet .vo { color: var(--amber); font-weight: 700; }
+.quote { margin-top: 28px; font: 700 clamp(1.3rem, 2.6vw, 1.8rem)/1.3 var(--display); max-width: 30ch; }
 
-  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: start; }
-  .about-badge { width: 64px; height: 64px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 20px; }
-  .about-grid p { color: var(--text-dim); font-size: 16px; max-width: 60ch; }
-  .about-grid strong { color: var(--text); }
-  @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
+/* bento */
+.bento { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+.card { position: relative; border-radius: 22px; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015)); padding: 28px; overflow: hidden; transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .3s; isolation: isolate; min-width: 0; display: flex; flex-direction: column; }
+.card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 0%), rgba(47,243,214,.12), transparent 45%); opacity: 0; transition: opacity .3s; }
+.card:hover { transform: translateY(-4px); border-color: rgba(47,243,214,.35); }
+.card:hover::after { opacity: 1; }
+.w6 { grid-column: span 6; } .w4 { grid-column: span 4; } .w3 { grid-column: span 3; } .w2 { grid-column: span 2; }
+.card .tag { font: 500 .72rem var(--mono); color: var(--cyan); letter-spacing: .08em; text-transform: uppercase; }
+.card h3 { font-size: 1.7rem; letter-spacing: -.01em; margin-top: 10px; padding-right: 48px; }
+.card p { color: var(--muted); margin: 10px 0 0; }
+.card ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 6px; font-size: .92rem; }
+.card ul li::before { content: "▹ "; color: var(--cyan); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 20px; }
+.chips span { font: .72rem var(--mono); padding: 4px 9px; border-radius: 7px; border: 1px solid var(--line); color: var(--muted); }
+.go { position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; text-decoration: none; transition: background .2s, transform .3s, color .2s; background: var(--bg-2); }
+.card:hover .go { background: var(--cyan); color: #03101a; transform: rotate(-45deg); }
+.shot { margin: 22px -28px 0; border-top: 1px solid var(--line); overflow: hidden; height: 260px; position: relative; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.card:hover .shot img { transform: scale(1.04); }
+.shot::after { content: ""; position: absolute; inset: auto 0 0; height: 40%; background: linear-gradient(transparent, rgba(5,8,13,.9)); }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 28px; align-items: center; }
+.split .shot { margin: 0; border: 1px solid var(--line); border-radius: 14px; height: 300px; }
+.mcp { margin-top: 20px; font: .8rem/1.8 var(--mono); padding: 16px; border-radius: 12px; background: rgba(0,0,0,.4); border: 1px solid var(--line); white-space: pre-wrap; overflow-wrap: anywhere; color: var(--muted); }
+.mcp .ok { color: var(--cyan); } .mcp .y { color: var(--amber); } .mcp .w { color: var(--ink); }
 
-  .contact-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 28px 0 0; }
-  .badge { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 100px; border: 1px solid var(--border); text-decoration: none; font-size: 14px; font-weight: 600; background: var(--surface); transition: transform .15s ease, border-color .15s ease; }
-  .badge:hover { transform: translateY(-2px); border-color: var(--accent); }
-  .badge.primary { background: var(--accent); border-color: var(--accent); color: #0E0E10; }
-  .badge.copied { background: var(--accent-2); border-color: var(--accent-2); color: #0E0E10; }
+/* live repos */
+.repos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+.repo { display: grid; gap: 6px; align-content: start; padding: 18px 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--glass); text-decoration: none; transition: border-color .2s, transform .2s; min-width: 0; }
+.repo:hover { border-color: rgba(47,243,214,.4); transform: translateY(-2px); }
+.repo .path { font: .74rem var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+.repo b { font: 700 1.05rem var(--body); overflow-wrap: anywhere; }
+.repo p { margin: 0; color: var(--muted); font-size: .9rem; }
+.repo .lang { font: .74rem var(--mono); color: var(--cyan); }
+.subhead { font: 500 .78rem var(--mono); color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-top: 48px; }
 
-  .contact-marquee { overflow: hidden; white-space: nowrap; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 24px 0; margin-top: 44px; }
-  .contact-marquee .track { display: inline-block; animation: ticker 18s linear infinite; }
-  .contact-marquee a { text-decoration: none; color: var(--text); font-family: 'Anton', sans-serif; font-size: clamp(28px,5vw,54px); margin: 0 20px; }
-  .contact-marquee a:hover { color: var(--accent); }
+/* about */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; margin-top: 40px; }
+.about p { color: var(--muted); font-size: 1.08rem; margin: 0 0 16px; max-width: 58ch; }
+.about p b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; position: relative; }
+.tl::before { content: ""; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 1px; background: linear-gradient(var(--cyan), var(--violet), transparent); }
+.ev { position: relative; padding: 0 0 30px 40px; }
+.ev::before { content: ""; position: absolute; left: 0; top: 6px; width: 15px; height: 15px; border-radius: 50%; background: var(--bg); border: 2px solid var(--cyan); box-shadow: 0 0 14px rgba(47,243,214,.6); }
+.ev small { font: .76rem var(--mono); color: var(--cyan); letter-spacing: .06em; }
+.ev h3 { font-size: 1.2rem; margin-top: 2px; }
+.ev p { margin: 4px 0 0; font-size: .95rem; }
 
-  footer { padding: 32px 0; color: var(--text-dim); font-size: 13px; position: relative; z-index: 2; }
-  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  footer .foot-social { display: flex; gap: 16px; }
-  footer .foot-social a { color: var(--text-dim); text-decoration: none; }
-  footer .foot-social a:hover { color: var(--accent); }
+/* contact */
+.contact { margin-top: 40px; position: relative; border-radius: 28px; border: 1px solid var(--line); overflow: hidden; padding: clamp(28px, 6vw, 72px);
+  background: radial-gradient(ellipse at 0% 0%, rgba(47,243,214,.18), transparent 50%), radial-gradient(ellipse at 100% 100%, rgba(155,123,255,.22), transparent 55%), var(--bg-2); }
+.contact h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); }
+.contact > p { color: var(--muted); max-width: 52ch; margin: 18px 0 0; font-size: 1.08rem; }
+.mail { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 30px; }
+.mail code { font: 500 clamp(.95rem, 2.4vw, 1.3rem) var(--mono); padding: 14px 20px; border-radius: 14px; border: 1px solid var(--line); background: rgba(0,0,0,.35); -webkit-user-select: all; user-select: all; overflow-wrap: anywhere; min-width: 0; }
+.channels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+.channels a { display: grid; gap: 2px; padding: 16px 18px; border-radius: 14px; border: 1px solid var(--line); background: rgba(0,0,0,.25); text-decoration: none; transition: border-color .2s, transform .2s; }
+.channels a:hover { border-color: rgba(47,243,214,.45); transform: translateY(-2px); }
+.channels small { font: .72rem var(--mono); color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+.channels b { font-weight: 700; }
+footer { padding-block: 48px 40px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font: .8rem var(--mono); color: var(--muted); }
+footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
 
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .marquee-track, .ticker-track, .contact-marquee .track, .scroll-cue .line { animation: none; }
-  }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+@media (max-width: 960px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding-top: 48px; }
+  .w4, .w3, .w2 { grid-column: span 6; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split, .about { grid-template-columns: minmax(0, 1fr); }
+  .repos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .channels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .nav ul { display: none; }
+  section { padding-top: 72px; }
+  .thumb { flex-basis: 260px; }
+  .repos { grid-template-columns: minmax(0, 1fr); }
+  .shot { height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
 </style>
 </head>
 <body>
 
-<div id="cursor-glow"></div>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grid-bg" aria-hidden="true"></div>
 
-<nav>
-  <div class="wrap">
-    <div class="nav-logo">FA</div>
-    <ul class="nav-links">
-      <li><a href="#thumbnails" data-nav>Thumbnails</a></li>
-      <li><a href="#scripts" data-nav>Scripts</a></li>
-      <li><a href="#code" data-nav>Code</a></li>
-      <li><a href="#about" data-nav>About</a></li>
-      <li><a href="#contact" data-nav>Contact</a></li>
-    </ul>
-    <div class="nav-social">
-      <a href="https://github.com/FahadAsad10" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
-      <a href="https://discord.com/users/realfahadasad" target="_blank" rel="noopener" aria-label="Discord">DC</a>
-      <a href="https://www.linkedin.com/in/fahad-asad-159172297/" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+<div class="page">
+  <header class="nav gutter">
+    <div class="bar">
+      <a class="logo" href="#top" aria-label="Back to top">FA</a>
+      <ul>
+        <li><a href="#thumbnails" data-nav>Thumbnails</a></li>
+        <li><a href="#scripts" data-nav>Scripts</a></li>
+        <li><a href="#code" data-nav>Code</a></li>
+        <li><a href="#about" data-nav>About</a></li>
+        <li><a href="#contact" data-nav>Contact</a></li>
+      </ul>
+      <a class="hire" href="#contact">Hire me</a>
     </div>
-  </div>
-</nav>
+  </header>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-eyebrow">Karachi, Pakistan</div>
-    <h1 class="display">FAHAD<br>ASAD</h1>
-    <div class="hero-role" id="roleText">Thumbnail Designer<span class="cursor">|</span></div>
-    <div class="scroll-cue"><div class="line"></div>Scroll to see the work</div>
-  </div>
-</header>
+  <div class="gutter" id="top">
+    <div class="inner">
+      <div class="hero">
+        <div>
+          <span class="pill"><span class="pulse"></span>Available for freelance · Karachi ⇄ Ancona</span>
+          <h1>Hi, I'm<br><span class="grad">Fahad Asad.</span></h1>
+          <div class="role">// <span class="typed" id="typed">Thumbnail Designer</span><span class="caret" aria-hidden="true"></span></div>
+          <p class="lede">I design <b>thumbnails that get the click</b>, write <b>scripts that keep people watching</b>, and build <b>AI-powered web apps</b> with Next.js and the Claude API.</p>
+          <div class="cta">
+            <a class="btn glow" href="#thumbnails">See my work →</a>
+            <a class="btn" href="#contact">Work with me</a>
+          </div>
+          <div class="socials">
+            <a href="https://github.com/FahadAsad10" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/fahad-asad-159172297/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://www.upwork.com/freelancers/~01537d5162db03cc81" target="_blank" rel="noopener">Upwork ↗</a>
+            <a href="https://discord.com/users/realfahadasad" target="_blank" rel="noopener">Discord ↗</a>
+          </div>
+        </div>
 
-<div class="ticker-bar" aria-hidden="true">
-  <div class="ticker-track">
-    <span>AVAILABLE FOR WORK</span><span>★</span>
-    <span>THUMBNAIL DESIGN</span><span>★</span>
-    <span>SCRIPTWRITING</span><span>★</span>
-    <span>WEB DEVELOPMENT</span><span>★</span>
-    <span>AVAILABLE FOR WORK</span><span>★</span>
-    <span>THUMBNAIL DESIGN</span><span>★</span>
-    <span>SCRIPTWRITING</span><span>★</span>
-    <span>WEB DEVELOPMENT</span><span>★</span>
-  </div>
-</div>
+        <div class="term" aria-label="Profile summary written as code">
+          <div class="top"><i></i><i></i><i></i><span>~/fahad/about.ts</span></div>
+<pre><span class="k">const</span> fahad = {
+  based:    <span class="s">"Karachi, PK · Ancona, IT"</span>,
+  studying: <span class="s">"Digital Economics &amp; Business"</span>,
+  aLevels:  [<span class="s">"Computer Science"</span>, <span class="s">"Maths"</span>, <span class="s">"Physics"</span>],
+  crafts:   [<span class="s">"Thumbnails"</span>, <span class="s">"Scripts"</span>,
+             <span class="s">"Video editing"</span>, <span class="s">"Code"</span>],
+  building: [<span class="s">"Next.js"</span>, <span class="s">"TypeScript"</span>, <span class="s">"Claude API"</span>],
+  tutors:   <span class="s">"A-Level CS, Maths, Physics"</span>,
+};
 
-<section id="thumbnails">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="display">Thumbnails I've Made</h2>
-      <a class="viewall" href="https://drive.google.com/drive/folders/1rLJzKm04Op0R-kJ-ooRHFyPp0JKZSM3T?usp=drive_link" target="_blank" rel="noopener">View All ↗</a>
-    </div>
-    <p class="section-desc">Click any thumbnail to view it full size.</p>
-    <div class="marquee-wrap">
-      <div class="marquee-track" id="thumbTrack"></div>
-    </div>
-  </div>
-</section>
-
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
-  <img id="lightboxImg" src="" alt="Full size thumbnail" />
-</div>
-
-<section id="scripts">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="display">Scriptwriting</h2>
-      <a class="viewall" href="https://drive.google.com/drive/folders/1s30vUoAqecIyXgkL60pChBo14KybyTR5?usp=drive_link" target="_blank" rel="noopener">View All ↗</a>
-    </div>
-    <p class="section-desc">A thumbnail gets the click. The script decides whether they stay. Click a script below to read a real excerpt.</p>
-    <div class="write-list" id="writeList"></div>
-  </div>
-</section>
-
-<section id="code">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="display">I Code Too</h2>
-      <a class="viewall" href="https://github.com/FahadAsad10?tab=repositories" target="_blank" rel="noopener">View All ↗</a>
-    </div>
-    <p class="section-desc">A Level Computer Science background — this pulls live from GitHub, snippets included, so it's always current.</p>
-    <div class="code-grid" id="repoGrid">
-      <div class="code-loading">Loading latest repos…</div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div>
-        <div class="about-badge">👋</div>
-        <h2 class="display" style="font-size:34px;margin:0;">About Me</h2>
+<span class="c">// $ npm run hire-fahad</span>
+<span class="p">✔</span> ready in <span class="n">0.3s</span></pre>
+        </div>
       </div>
-      <p>
-        I'm <strong>Fahad Asad</strong>, a Digital Economics and Business student at the Università Politecnica delle Marche (Ancona), with A Levels in Computer Science, Maths and Physics, who also works across
-        <strong>thumbnail design</strong>, <strong>scriptwriting</strong>, <strong>video editing</strong>, and
-        <strong>social media management</strong>. I also tutor Cambridge/Edexcel A-Level Computer Science, Maths, and Physics.
-        <br><br>
-        Most of what's on this site exists because I actually needed it — a thumbnail for a real project, a script for a real video,
-        a tool for a real problem. I like building things that work, whether that's a program or a piece of content.
-      </p>
-    </div>
-  </div>
-</section>
 
-<section id="contact" style="border-bottom: 1px solid var(--border);">
-  <div class="wrap">
-    <h2 class="display" style="text-align:center;font-size:clamp(28px,5vw,40px);margin:0 0 12px;">Let's Talk</h2>
-    <p style="text-align:center;color:var(--text-dim);margin:0;">Open for freelance work — reach out however's easiest.</p>
-    <div class="contact-links">
-      <button class="badge primary" id="copyEmailBtn">📋 Email</button>
-      <a class="badge" href="https://discord.com/users/realfahadasad" target="_blank" rel="noopener">💬 Discord</a>
-      <a class="badge" href="https://www.linkedin.com/in/fahad-asad-159172297/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="badge" href="https://www.upwork.com/freelancers/~01537d5162db03cc81" target="_blank" rel="noopener">Upwork</a>
+      <div class="facts">
+        <div class="fact"><b>4</b><span>Crafts: design, script, edit, code</span></div>
+        <div class="fact"><b>3</b><span>AI apps on GitHub</span></div>
+        <div class="fact"><b>A Levels</b><span>CS · Maths · Physics</span></div>
+        <div class="fact"><b>2</b><span>Countries, one inbox</span></div>
+      </div>
     </div>
   </div>
-  <div class="contact-marquee" aria-hidden="true">
-    <div class="track">
-      <a href="mailto:m.fahadasadshaikh@gmail.com">Send me an email</a>
-      <a href="https://discord.com/users/realfahadasad" target="_blank" rel="noopener">Message me on Discord</a>
-      <a href="mailto:m.fahadasadshaikh@gmail.com">Send me an email</a>
-      <a href="https://discord.com/users/realfahadasad" target="_blank" rel="noopener">Message me on Discord</a>
-    </div>
-  </div>
-</section>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 Fahad Asad</span>
-    <div class="foot-social">
-      <a href="https://github.com/FahadAsad10" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://discord.com/users/realfahadasad" target="_blank" rel="noopener">Discord</a>
-      <a href="https://www.linkedin.com/in/fahad-asad-159172297/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.upwork.com/freelancers/~01537d5162db03cc81" target="_blank" rel="noopener">Upwork</a>
-      <a href="mailto:m.fahadasadshaikh@gmail.com">Email</a>
+  <div class="ticker" aria-hidden="true">
+    <div class="tt">
+      <span>THUMBNAIL DESIGN</span><span class="star">✦</span><span>SCRIPTWRITING</span><span class="star">✦</span><span>VIDEO EDITING</span><span class="star">✦</span><span>AI WEB APPS</span><span class="star">✦</span><span>A-LEVEL TUTORING</span><span class="star">✦</span>
+      <span>THUMBNAIL DESIGN</span><span class="star">✦</span><span>SCRIPTWRITING</span><span class="star">✦</span><span>VIDEO EDITING</span><span class="star">✦</span><span>AI WEB APPS</span><span class="star">✦</span><span>A-LEVEL TUTORING</span><span class="star">✦</span>
     </div>
   </div>
-</footer>
+
+  <section id="thumbnails">
+    <div class="gutter">
+      <div class="inner">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow">Thumbnails</div>
+            <h2>Made to <span class="grad">get the click.</span></h2>
+            <p class="sub">Every thumbnail here was made for a real video. Click any one to see it full size.</p>
+          </div>
+          <a class="viewall" href="https://drive.google.com/drive/folders/1rLJzKm04Op0R-kJ-ooRHFyPp0JKZSM3T?usp=drive_link" target="_blank" rel="noopener">View all ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="reel"><div class="reel-track" id="thumbTrack"></div></div>
+  </section>
+
+  <div class="gutter">
+    <div class="inner">
+
+      <section id="scripts">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow">Scriptwriting</div>
+            <h2>The script decides <span class="grad">if they stay.</span></h2>
+            <p class="sub">Open a script to read a real excerpt, straight from my writing folder.</p>
+          </div>
+          <a class="viewall" href="https://drive.google.com/drive/folders/1s30vUoAqecIyXgkL60pChBo14KybyTR5?usp=drive_link" target="_blank" rel="noopener">View all ↗</a>
+        </div>
+        <div class="scripts" id="writeList"></div>
+      </section>
+
+      <section id="code">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow">Code</div>
+            <h2>I build with <span class="grad">AI, too.</span></h2>
+            <p class="sub">Three recent projects built with Next.js, TypeScript and the Claude API. Source code is open on GitHub.</p>
+          </div>
+          <a class="viewall" href="https://github.com/FahadAsad10?tab=repositories" target="_blank" rel="noopener">All repos ↗</a>
+        </div>
+
+        <div class="bento">
+          <article class="card w4">
+            <a class="go" href="https://github.com/FahadAsad10/resumefit-ai" target="_blank" rel="noopener" aria-label="ResumeFit AI on GitHub">↗</a>
+            <span class="tag">AI · Careers</span>
+            <h3>ResumeFit AI</h3>
+            <p>Paste a job post and your CV. Get a fit score out of 100, the skills you're missing, the keywords applicant-tracking systems look for, and stronger bullet points you can copy straight in.</p>
+            <div class="shot"><img src="assets/resumefit-ai.jpg" alt="ResumeFit AI showing a fit score of 72 with strengths and missing requirements" loading="lazy"></div>
+            <div class="chips"><span>Next.js</span><span>TypeScript</span><span>Zod</span><span>Claude structured outputs</span></div>
+          </article>
+
+          <article class="card w2">
+            <a class="go" href="https://github.com/FahadAsad10/github-pulse-mcp" target="_blank" rel="noopener" aria-label="GitHub Pulse MCP on GitHub">↗</a>
+            <span class="tag">MCP server</span>
+            <h3>GitHub Pulse MCP</h3>
+            <p>Gives Claude a set of GitHub tools: activity summaries, repo health scores and good first issues.</p>
+<div class="mcp"><span class="w">&gt; repo_health</span> vercel/next.js
+<span class="ok">✔</span> CI passing
+<span class="ok">✔</span> README, license
+<span class="y">●</span> score <span class="w">92/100</span></div>
+            <div class="chips"><span>TypeScript</span><span>MCP SDK</span><span>Vitest</span><span>GitHub Actions</span></div>
+          </article>
+
+          <article class="card w6">
+            <a class="go" href="https://github.com/FahadAsad10/askmydocs" target="_blank" rel="noopener" aria-label="AskMyDocs on GitHub">↗</a>
+            <div class="split">
+              <div>
+                <span class="tag">AI · Documents</span>
+                <h3>AskMyDocs</h3>
+                <p>Chat with your PDFs. Every answer links to the exact passage it came from, so you can check it in one click.</p>
+                <ul><li>Clickable citations from the Claude citations API</li><li>Streaming answers</li><li>Prompt caching keeps follow-up questions fast and cheap</li></ul>
+                <div class="chips"><span>Next.js</span><span>Claude API</span><span>Streaming</span><span>Prompt caching</span></div>
+              </div>
+              <div class="shot"><img src="assets/askmydocs.jpg" alt="AskMyDocs answering questions about a remote work policy with numbered citations" loading="lazy"></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="subhead">Latest on GitHub</div>
+        <div class="repos" id="repoGrid">
+          <a class="repo" href="https://github.com/FahadAsad10?tab=repositories" target="_blank" rel="noopener"><span class="path">github.com/FahadAsad10</span><b>Browse all repositories</b><p>Recent repos load here automatically.</p></a>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="eyebrow">About</div>
+        <h2>Content and code, <span class="grad">same brain.</span></h2>
+        <div class="about">
+          <div>
+            <p>I'm <b>Fahad Asad</b>, a Digital Economics and Business student at the <b>Università Politecnica delle Marche</b> in Ancona, with A Levels in Computer Science, Maths and Physics.</p>
+            <p>I work across <b>thumbnail design, scriptwriting, video editing and social media management</b>, and I build web apps when a problem needs one. I also tutor Cambridge and Edexcel A-Level Computer Science, Maths and Physics.</p>
+            <p>Most of what's on this site exists because I needed it: a thumbnail for a real project, a script for a real video, a tool for a real problem. I like building things that work, whether that's a program or a piece of content.</p>
+          </div>
+          <div class="tl">
+            <div class="ev"><small>NOW</small><h3>Digital Economics &amp; Business</h3><p>Università Politecnica delle Marche, Ancona</p></div>
+            <div class="ev"><small>NOW</small><h3>Freelance creative</h3><p>Thumbnails, scripts, editing and social media for creators.</p></div>
+            <div class="ev"><small>NOW</small><h3>A-Level tutor</h3><p>Cambridge and Edexcel Computer Science, Maths and Physics.</p></div>
+            <div class="ev"><small>BEFORE</small><h3>A Levels</h3><p>Computer Science, Maths and Physics.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact">
+          <div class="eyebrow">Contact</div>
+          <h2 style="margin-top:14px">Let's make something <span class="grad">people click.</span></h2>
+          <p>Open for freelance work: thumbnails, scripts, editing or a web app. Email is quickest.</p>
+          <div class="mail"><code id="addr">m.fahadasadshaikh@gmail.com</code><button class="btn glow" id="copyEmailBtn" type="button">Copy email</button></div>
+          <div class="channels">
+            <a href="https://www.upwork.com/freelancers/~01537d5162db03cc81" target="_blank" rel="noopener"><small>Hire</small><b>Upwork ↗</b></a>
+            <a href="https://www.linkedin.com/in/fahad-asad-159172297/" target="_blank" rel="noopener"><small>Connect</small><b>LinkedIn ↗</b></a>
+            <a href="https://discord.com/users/realfahadasad" target="_blank" rel="noopener"><small>Chat</small><b>Discord ↗</b></a>
+            <a href="https://github.com/FahadAsad10" target="_blank" rel="noopener"><small>Code</small><b>GitHub ↗</b></a>
+          </div>
+        </div>
+      </section>
+
+      <footer><span>© 2026 Fahad Asad</span><a href="#top">Back to top ↑</a></footer>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" hidden><button id="lightboxClose" type="button" aria-label="Close">✕</button><img id="lightboxImg" src="data:," alt="Thumbnail at full size"></div>
 
 <script>
-  // Cursor glow follows mouse
-  const glow = document.getElementById('cursor-glow');
-  document.addEventListener('mousemove', (e) => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-  });
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 
-  // Role cycling text
-  const roles = ["Thumbnail Designer", "Scriptwriter", "Digital Economics & Business Student", "Web Developer", "Video Editor"];
-  const roleEl = document.getElementById('roleText');
-  let ri = 0;
-  setInterval(() => { ri = (ri + 1) % roles.length; roleEl.innerHTML = roles[ri] + '<span class="cursor">|</span>'; }, 2600);
+  // Typing role line (starts on a visible word)
+  var words = ['Thumbnail Designer', 'Scriptwriter', 'AI Web Developer', 'Video Editor', 'A-Level Tutor'];
+  var el = document.getElementById('typed'), wi = 0, ci = words[0].length, del = true;
+  if (!reduce) setTimeout(function tick() {
+    if (del) { ci--; if (ci === 0) { del = false; wi = (wi + 1) % words.length; } }
+    else { ci++; if (ci === words[wi].length) { del = true; el.textContent = words[wi]; return setTimeout(tick, 1800); } }
+    el.textContent = words[wi].slice(0, ci) || '​';
+    setTimeout(tick, del ? 40 : 75);
+  }, 2200);
 
-  // Active nav highlight on scroll
-  const navLinks = document.querySelectorAll('[data-nav]');
-  const sections = [...navLinks].map(l => document.querySelector(l.getAttribute('href')));
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (s && window.scrollY >= s.offsetTop - 120) current = '#' + s.id; });
-    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === current));
-  });
-
-  // ---- Google Drive auto-sync config ----
-  const DRIVE_API_KEY = "AIzaSyBaepDTMmTHX9UJoiBl_e2XZ0wZwuOdJLU";
-  const THUMBS_FOLDER_ID = "1rLJzKm04Op0R-kJ-ooRHFyPp0JKZSM3T";
-  const SCRIPTS_FOLDER_ID = "1s30vUoAqecIyXgkL60pChBo14KybyTR5";
-
-  // Thumbnail marquee + lightbox — pulled live from Google Drive
-  async function loadThumbnails() {
-    const track = document.getElementById('thumbTrack');
-    try {
-      const url = `https://www.googleapis.com/drive/v3/files?q='${THUMBS_FOLDER_ID}'+in+parents+and+trashed=false&key=${DRIVE_API_KEY}&fields=files(id,name,thumbnailLink)&pageSize=50&orderBy=createdTime desc`;
-      const res = await fetch(url);
-      const data = await res.json();
-      const files = data.files || [];
-      if (files.length === 0) {
-        track.innerHTML = `<div class="thumb-card"><div class="thumb-placeholder">More thumbnails<br>coming soon</div></div>`;
-        return;
-      }
-      const cards = files.map(f => {
-        const title = f.name.replace(/\.[a-zA-Z0-9]+$/, '');
-        const full = (f.thumbnailLink || '').replace(/=s\d+$/, '=s1600');
-        return `
-        <div class="thumb-card" data-full="${full}">
-          <img class="thumb-img" src="${full}" alt="${title} thumbnail" loading="lazy" />
-          <div class="thumb-meta"><div class="tag">PORTFOLIO</div><div class="title">${title}</div></div>
-        </div>`;
-      }).join('');
-      track.innerHTML = cards + cards;
-      track.querySelectorAll('.thumb-card[data-full]').forEach(card => {
-        card.addEventListener('click', () => openLightbox(card.getAttribute('data-full')));
-      });
-    } catch (e) {
-      track.innerHTML = `<div class="thumb-card"><div class="thumb-placeholder">Couldn't load right now<br>check back soon</div></div>`;
-    }
+  // Active nav link
+  var navLinks = document.querySelectorAll('[data-nav]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) navLinks.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
   }
-  loadThumbnails();
 
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  function openLightbox(src) { lightboxImg.src = src; lightbox.classList.add('open'); }
-  function closeLightbox() { lightbox.classList.remove('open'); lightboxImg.src = ''; }
+  // Card spotlight
+  document.querySelectorAll('.card').forEach(function (c) {
+    c.addEventListener('pointermove', function (e) {
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  // ---- Google Drive auto-sync ----
+  var DRIVE_API_KEY = "AIzaSyBaepDTMmTHX9UJoiBl_e2XZ0wZwuOdJLU";
+  var THUMBS_FOLDER_ID = "1rLJzKm04Op0R-kJ-ooRHFyPp0JKZSM3T";
+  var SCRIPTS_FOLDER_ID = "1s30vUoAqecIyXgkL60pChBo14KybyTR5";
+  function driveList(folder, fields) {
+    var url = 'https://www.googleapis.com/drive/v3/files?q=%27' + folder + '%27+in+parents+and+trashed=false&key=' + DRIVE_API_KEY +
+      '&fields=files(' + fields + ')&pageSize=50&orderBy=createdTime%20desc';
+    return fetch(url).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) { return d.files || []; });
+  }
+
+  // Thumbnails reel + lightbox
+  var track = document.getElementById('thumbTrack');
+  var lightbox = document.getElementById('lightbox'), lightboxImg = document.getElementById('lightboxImg');
+  function placeholderReel(msg) {
+    var one = '';
+    for (var i = 0; i < 5; i++) one += '<div class="thumb" aria-hidden="true"><div class="ph">' + msg + '</div><div class="meta"><small>THUMBNAIL</small><span>Portfolio piece</span></div></div>';
+    track.innerHTML = one + one;
+  }
+  placeholderReel('Loading thumbnails…');
+  driveList(THUMBS_FOLDER_ID, 'id,name,thumbnailLink').then(function (files) {
+    files = files.filter(function (f) { return f.thumbnailLink; });
+    if (!files.length) return placeholderReel('More thumbnails<br>coming soon');
+    var cards = files.map(function (f) {
+      var title = esc(f.name.replace(/\.[a-zA-Z0-9]+$/, ''));
+      var full = esc(f.thumbnailLink.replace(/=s\d+$/, '=s1600'));
+      return '<button class="thumb" type="button" data-full="' + full + '"><img src="' + full + '" alt="' + title + ' thumbnail" loading="lazy" referrerpolicy="no-referrer"><div class="meta"><small>THUMBNAIL</small><span>' + title + '</span></div></button>';
+    }).join('');
+    while (files.length < 4 && cards.length) { cards += cards; files = files.concat(files); }
+    track.innerHTML = cards + cards;
+  }).catch(function () { placeholderReel('Thumbnails load live<br>from Google Drive'); });
+  track.addEventListener('click', function (e) {
+    var b = e.target.closest('.thumb[data-full]'); if (!b) return;
+    lightboxImg.src = b.getAttribute('data-full'); lightbox.hidden = false; document.getElementById('lightboxClose').focus();
+  });
+  function closeLightbox() { lightbox.hidden = true; lightboxImg.src = 'data:,'; }
   document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lightbox.hidden) closeLightbox(); });
 
-  // Scripts - expandable, pulled live from Google Drive (Docs export as text, other files fetched raw)
-  async function loadScripts() {
-    const list = document.getElementById('writeList');
-    try {
-      const url = `https://www.googleapis.com/drive/v3/files?q='${SCRIPTS_FOLDER_ID}'+in+parents+and+trashed=false&key=${DRIVE_API_KEY}&fields=files(id,name,mimeType)&pageSize=50&orderBy=createdTime desc`;
-      const res = await fetch(url);
-      const data = await res.json();
-      const files = data.files || [];
-      if (files.length === 0) {
-        list.innerHTML = `<div class="write-item"><div class="write-head"><div class="tag">SOON</div><div><h3>Scripts coming soon</h3><p>Full writing samples get added here automatically as they're uploaded.</p></div></div></div>`;
-        return;
-      }
-      list.innerHTML = files.map((f, i) => `
-        <div class="write-item" data-idx="${i}" data-id="${f.id}" data-isdoc="${f.mimeType === 'application/vnd.google-apps.document'}">
-          <div class="write-head">
-            <div class="tag">SCRIPT</div>
-            <div><h3>${f.name}</h3><p>Click to read an excerpt</p></div>
-            <button class="expand-btn" aria-label="Expand">+</button>
-          </div>
-          <div class="write-body"><div class="snippet">Click to load…</div></div>
-        </div>`).join('');
-      list.querySelectorAll('.write-item').forEach(item => {
-        item.querySelector('.write-head').addEventListener('click', async () => {
-          const wasOpen = item.classList.contains('open');
-          item.classList.toggle('open');
-          if (wasOpen) return;
-          const snippetEl = item.querySelector('.snippet');
-          if (snippetEl.dataset.loaded) return;
-          const fileId = item.getAttribute('data-id');
-          const isDoc = item.getAttribute('data-isdoc') === 'true';
-          try {
-            const fetchUrl = isDoc
-              ? `https://www.googleapis.com/drive/v3/files/${fileId}/export?mimeType=text/plain&key=${DRIVE_API_KEY}`
-              : `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${DRIVE_API_KEY}`;
-            const r = await fetch(fetchUrl);
-            const text = await r.text();
-            const lines = text.split('\n').filter(l => l.trim().length > 0).slice(0, 16).join('\n');
-            snippetEl.innerHTML = (lines || text.slice(0, 800)).replace(/VO:/g, '<span class="vo">VO:</span>');
-            snippetEl.dataset.loaded = "1";
-          } catch (err) {
-            snippetEl.textContent = "Couldn't load preview — view it in Drive directly.";
-          }
-        });
-      });
-    } catch (e) {
-      list.innerHTML = `<div class="write-item"><div class="write-head"><div class="tag">ERROR</div><div><h3>Couldn't load scripts right now</h3><p>Check back soon.</p></div></div></div>`;
-    }
+  // Scripts accordion
+  var list = document.getElementById('writeList');
+  function scriptRow(i, id, name, isDoc, sub) {
+    return '<div class="script" data-id="' + esc(id) + '" data-isdoc="' + isDoc + '"><button type="button" aria-expanded="false"><span class="tag">SCRIPT</span><h3>' + esc(name) + '</h3><span class="plus" aria-hidden="true">+</span></button><div class="body" hidden><div class="snippet">' + (sub || 'Loading…') + '</div></div></div>';
   }
-  loadScripts();
-
-  // Live GitHub repos with real code snippet preview
-  async function loadRepos() {
-    const grid = document.getElementById('repoGrid');
-    try {
-      const res = await fetch('https://api.github.com/users/FahadAsad10/repos?sort=updated&per_page=6');
-      const repos = await res.json();
-      if (!Array.isArray(repos) || repos.length === 0) {
-        grid.innerHTML = '<div class="code-loading">No public repos yet — check back soon.</div>';
-        return;
-      }
-      grid.innerHTML = repos.map(r => `
-        <div class="code-block" data-repo="${r.name}">
-          <div class="path">FahadAsad10 / ${r.name}</div>
-          <h3>${r.name.replace(/-/g, ' ')}</h3>
-          <p>${r.description ? r.description : 'No description yet.'}</p>
-          <div class="code-snippet mono" data-snippet-for="${r.name}">Loading snippet…</div>
-          <a href="${r.html_url}" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>`).join('');
-
-      // fetch a real code snippet for each repo
-      repos.forEach(async (r) => {
-        const el = grid.querySelector(`[data-snippet-for="${r.name}"]`);
-        try {
-          const contentsRes = await fetch(`https://api.github.com/repos/FahadAsad10/${r.name}/contents`);
-          const contents = await contentsRes.json();
-          const codeFile = Array.isArray(contents) ? contents.find(f => /\.(java|py|js|html)$/i.test(f.name)) : null;
-          if (!codeFile) { el.textContent = '// browse the repo to see the code'; return; }
-          const fileRes = await fetch(codeFile.download_url);
-          const text = await fileRes.text();
-          const lines = text.split('\n').slice(0, 6).join('\n');
-          el.textContent = lines + (text.split('\n').length > 6 ? '\\n...' : '');
-        } catch (err) {
-          el.textContent = '// preview unavailable';
-        }
-      });
-    } catch (e) {
-      grid.innerHTML = '<div class="code-loading">Couldn\'t load repos right now — <a href="https://github.com/FahadAsad10" target="_blank" rel="noopener" style="color:var(--accent)">view on GitHub</a> directly.</div>';
-    }
-  }
-  loadRepos();
-
-  // Copy email button
-  document.getElementById('copyEmailBtn').addEventListener('click', async (e) => {
-    try {
-      await navigator.clipboard.writeText('m.fahadasadshaikh@gmail.com');
-      const btn = e.currentTarget;
-      const original = btn.textContent;
-      btn.textContent = '✓ Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
-    } catch (err) {
-      window.location.href = 'mailto:m.fahadasadshaikh@gmail.com';
-    }
+  list.innerHTML = scriptRow(0, '', 'Loading scripts…', false, '');
+  driveList(SCRIPTS_FOLDER_ID, 'id,name,mimeType').then(function (files) {
+    if (!files.length) { list.innerHTML = scriptRow(0, '', 'Scripts coming soon', false, 'New writing samples appear here as soon as they are uploaded.'); return; }
+    list.innerHTML = files.map(function (f, i) { return scriptRow(i, f.id, f.name.replace(/\.[a-zA-Z0-9]+$/, ''), f.mimeType === 'application/vnd.google-apps.document'); }).join('');
+  }).catch(function () {
+    list.innerHTML = scriptRow(0, '', 'Read my scripts on Google Drive', false, 'Scripts load live from Google Drive. Use "View all" above to read them directly.');
   });
-</script>
+  list.addEventListener('click', function (e) {
+    var btn = e.target.closest('.script > button'); if (!btn) return;
+    var item = btn.parentNode, body = item.querySelector('.body'), open = !item.classList.contains('open');
+    item.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); body.hidden = !open;
+    var snip = item.querySelector('.snippet'), id = item.getAttribute('data-id');
+    if (!open || !id || snip.dataset.loaded) return;
+    var isDoc = item.getAttribute('data-isdoc') === 'true';
+    var url = isDoc
+      ? 'https://www.googleapis.com/drive/v3/files/' + id + '/export?mimeType=text/plain&key=' + DRIVE_API_KEY
+      : 'https://www.googleapis.com/drive/v3/files/' + id + '?alt=media&key=' + DRIVE_API_KEY;
+    fetch(url).then(function (r) { return r.text(); }).then(function (text) {
+      var lines = text.split('\n').filter(function (l) { return l.trim(); }).slice(0, 16).join('\n') || text.slice(0, 800);
+      snip.innerHTML = esc(lines).replace(/VO:/g, '<span class="vo">VO:</span>');
+      snip.dataset.loaded = '1';
+    }).catch(function () { snip.textContent = "Couldn't load the preview. Open it in Google Drive instead."; });
+  });
 
+  // Live GitHub repos
+  var grid = document.getElementById('repoGrid');
+  fetch('https://api.github.com/users/FahadAsad10/repos?sort=updated&per_page=7')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (repos) {
+      repos = repos.filter(function (r) { return !r.fork && !/\.github\.io$/i.test(r.name) && r.name.toLowerCase() !== 'fahadasad10' && ['resumefit-ai', 'askmydocs', 'github-pulse-mcp'].indexOf(r.name.toLowerCase()) < 0; }).slice(0, 6);
+      if (!repos.length) return;
+      grid.innerHTML = repos.map(function (r) {
+        return '<a class="repo" href="' + esc(r.html_url) + '" target="_blank" rel="noopener"><span class="path">FahadAsad10 / ' + esc(r.name) + '</span><b>' + esc(r.name.replace(/[-_]+/g, ' ')) + '</b><p>' + esc(r.description || 'No description yet.') + '</p>' + (r.language ? '<span class="lang">● ' + esc(r.language) + '</span>' : '') + '</a>';
+      }).join('');
+    }).catch(function () {});
+
+  // Copy email
+  document.getElementById('copyEmailBtn').addEventListener('click', function () {
+    var b = this, a = document.getElementById('addr');
+    function sel() { var r = document.createRange(); r.selectNodeContents(a); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Press Ctrl+C'; }
+    try { navigator.clipboard.writeText(a.textContent).then(function () { b.textContent = 'Copied ✓'; setTimeout(function () { b.textContent = 'Copy email'; }, 1800); }, sel); } catch (e) { sel(); }
+  });
+})();
+</script>
 </body>
 </html>

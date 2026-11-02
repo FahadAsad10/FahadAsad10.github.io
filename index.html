@@ -169,6 +169,8 @@ h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); letter-spacing: -.025em; line-height
 .card p { color: var(--muted); margin: 10px 0 0; }
 .card ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 6px; font-size: .92rem; }
 .card ul li::before { content: "▹ "; color: var(--cyan); }
+.card .live { align-self: flex-start; margin-top: 14px; font: 600 .8rem var(--mono); color: var(--bg); background: var(--cyan); padding: 7px 12px; border-radius: 8px; text-decoration: none; position: relative; z-index: 2; }
+.card .live:hover { filter: brightness(1.1); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 20px; }
 .chips span { font: .72rem var(--mono); padding: 4px 9px; border-radius: 7px; border: 1px solid var(--line); color: var(--muted); }
 .go { position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; text-decoration: none; transition: background .2s, transform .3s, color .2s; background: var(--bg-2); }
@@ -401,6 +403,7 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
             <h3>Churn Radar</h3>
             <p>Predicts which subscription customers are about to cancel, shows the revenue at risk, and ranks the retention offers that would keep each one. Three models compared with cross-validation, tuned decision threshold, explainable drivers.</p>
             <div class="shot"><img src="assets/churn-radar.jpg" alt="Churn Radar dashboard showing churn rate, high-risk customers and monthly revenue at risk" loading="lazy"></div>
+            <a class="live" href="churn-radar/">▶ Try the live demo</a>
             <div class="chips"><span>Python</span><span>scikit-learn</span><span>pandas</span><span>Streamlit</span><span>Docker</span></div>
           </article>
 

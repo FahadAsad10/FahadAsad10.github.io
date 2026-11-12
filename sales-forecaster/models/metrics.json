@@ -1,0 +1,35 @@
+{
+  "wape": {
+    "Gradient boosting (this model)": 0.2736564151294716,
+    "Same weekday, last 4 weeks": 0.340060474349981,
+    "Same day last year": 0.3976818929984549
+  },
+  "weekly_wape": {
+    "model": 0.12260360456003339,
+    "naive": 0.21360993815019097
+  },
+  "by_category": {
+    "Clothing": {
+      "model": 0.27346257068199253,
+      "naive": 0.33450778513861346
+    },
+    "Electronics": {
+      "model": 0.28674306482849377,
+      "naive": 0.3658838827268888
+    },
+    "Home & Kitchen": {
+      "model": 0.2626993500737001,
+      "naive": 0.31114842017520405
+    },
+    "Sports & Outdoors": {
+      "model": 0.27682263632651194,
+      "naive": 0.3679305411030177
+    }
+  },
+  "coverage_p10_p90_raw": 0.7321428571428571,
+  "band_widen": 1.2,
+  "bias": -0.007013186981307373,
+  "folds": 6,
+  "horizon": 28,
+  "error_reduction_vs_naive": 0.19527132445321516
+}

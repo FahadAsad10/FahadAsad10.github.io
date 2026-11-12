@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Segments · live demo</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fahadasad10.github.io/customer-segments/">
+<meta property="og:title" content="Customer Segments: live RFM segmentation and CLV demo">
+<meta property="og:description" content="Segment customers with RFM and k-means, predict lifetime value and export a marketing playbook. Runs in your browser with scikit-learn + Streamlit.">
+<meta property="og:image" content="https://fahadasad10.github.io/assets/customer-segments.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Live demo of Customer Segments, an RFM segmentation, k-means and customer lifetime value dashboard by Fahad Asad. Runs entirely in your browser with Python (scikit-learn + Streamlit via stlite).">
+<link rel="icon" href="../favicon.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.0/build/stlite.css">
+<style>
+  html, body { margin: 0; background: #0b0b10; color: #ececf1; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .bar { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid #24242f; font-size: 14px; }
+  .bar a { color: #f6ad55; text-decoration: none; }
+  .bar a:hover { text-decoration: underline; }
+  .bar span { color: #9a9aab; }
+  #boot { padding: 48px 16px; text-align: center; color: #9a9aab; }
+  #boot b { color: #ececf1; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="../">← Fahad Asad</a>
+  <span>Runs fully in your browser (Python via WebAssembly). First load takes ~40 s.</span>
+  <a href="https://github.com/FahadAsad10/customer-segments" target="_blank" rel="noopener">Source on GitHub ↗</a>
+</div>
+<div id="root"><div id="boot"><b>🎯 Customer Segments</b><br>Loading Python, scikit-learn and the customer models in your browser…</div></div>
+<script type="module">
+import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.0/build/stlite.js";
+mount(
+  {
+    entrypoint: "web_app.py",
+    requirements: ["scikit-learn", "pandas", "numpy", "joblib", "plotly"],
+    files: {
+      "web_app.py": { url: "web_app.py" },
+      "models/metrics.json": { url: "models/metrics.json" },
+      "app.py": { url: "app.py" },
+      "customer_segments/__init__.py": { url: "customer_segments/__init__.py" },
+      "customer_segments/data.py": { url: "customer_segments/data.py" },
+      "customer_segments/model.py": { url: "customer_segments/model.py" },
+      "customer_segments/train.py": { url: "customer_segments/train.py" },
+    },
+    streamlitConfig: {
+      "theme.base": "dark",
+      "theme.primaryColor": "#f6ad55",
+      "theme.backgroundColor": "#0b0b10",
+      "theme.secondaryBackgroundColor": "#15151d",
+      "theme.textColor": "#ececf1",
+      "client.toolbarMode": "viewer",
+    },
+  },
+  document.getElementById("root"),
+);
+</script>
+</body>
+</html>

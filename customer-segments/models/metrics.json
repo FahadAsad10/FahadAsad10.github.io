@@ -1,0 +1,65 @@
+{
+  "customers": 5000,
+  "orders": 21724,
+  "revenue": 1958005.1199999999,
+  "top20_revenue_share": 0.6871829426064012,
+  "segments": {
+    "Champions": {
+      "customers": 1133,
+      "share_of_revenue": 0.6494943486153908
+    },
+    "Loyal": {
+      "customers": 545,
+      "share_of_revenue": 0.12082950528750407
+    },
+    "Potential loyalists": {
+      "customers": 451,
+      "share_of_revenue": 0.031194673280527482
+    },
+    "New customers": {
+      "customers": 236,
+      "share_of_revenue": 0.007574724830137319
+    },
+    "Need attention": {
+      "customers": 635,
+      "share_of_revenue": 0.029522297674073498
+    },
+    "At risk": {
+      "customers": 409,
+      "share_of_revenue": 0.041876044736798235
+    },
+    "Can't lose them": {
+      "customers": 325,
+      "share_of_revenue": 0.07714368489496086
+    },
+    "Hibernating": {
+      "customers": 581,
+      "share_of_revenue": 0.019986132620531658
+    },
+    "Lost": {
+      "customers": 685,
+      "share_of_revenue": 0.022378588060076168
+    }
+  },
+  "silhouette": {
+    "3": 0.3509515946796397,
+    "4": 0.35862771637438406,
+    "5": 0.32693264089938684,
+    "6": 0.32666152939923027,
+    "7": 0.31312623864681643
+  },
+  "best_k": 4,
+  "clv": {
+    "train_cutoff": "2025-01-05",
+    "test_cutoff": "2025-07-04",
+    "customers_scored": 3570,
+    "actual_revenue": 576954.3200000001,
+    "mae_model": 118.00190192880088,
+    "mae_baseline": 123.70466666666668,
+    "top20_capture_model": 0.6558927056824878,
+    "top20_capture_baseline": 0.6449710438081129,
+    "auc_buy_again_model": 0.7902936103336164,
+    "auc_buy_again_recency": 0.7808040223415963,
+    "total_predicted": 491924.76015265926
+  }
+}

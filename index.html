@@ -200,7 +200,7 @@ h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); letter-spacing: -.025em; line-height
 .card p { color: var(--muted); margin: 10px 0 0; }
 .card ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 6px; font-size: .92rem; }
 .card ul li::before { content: "▹ "; color: var(--cyan); }
-.card .live { align-self: flex-start; margin-top: 14px; font: 600 .8rem var(--mono); color: var(--bg); background: var(--cyan); padding: 7px 12px; border-radius: 8px; text-decoration: none; position: relative; z-index: 2; }
+.card .live { display: inline-block; align-self: flex-start; margin-top: 14px; font: 600 .8rem var(--mono); color: var(--bg); background: var(--cyan); padding: 7px 12px; border-radius: 8px; text-decoration: none; position: relative; z-index: 2; }
 .card .live:hover { filter: brightness(1.1); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 20px; }
 .chips span { font: .72rem var(--mono); padding: 4px 9px; border-radius: 7px; border: 1px solid var(--line); color: var(--muted); }
@@ -386,16 +386,16 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
       <div class="facts">
         <div class="fact"><b>76%</b><span>of churners flagged in advance by Churn Radar</span></div>
         <div class="fact"><b>13k/s</b><span>requests served by one Snaplink container</span></div>
-        <div class="fact"><b>6</b><span>products shipped, all with source code</span></div>
-        <div class="fact"><b>4-in-1</b><span>design, script, edit &amp; code, one point of contact</span></div>
+        <div class="fact"><b>43%</b><span>less forecast error than the rule of thumb (Sales Forecaster)</span></div>
+        <div class="fact"><b>8</b><span>products shipped, all with source code</span></div>
       </div>
     </div>
   </div>
 
   <div class="ticker" aria-hidden="true">
     <div class="tt">
-      <span>AI AUTOMATION</span><span class="star">✦</span><span>CHURN &amp; REVENUE ANALYTICS</span><span class="star">✦</span><span>THUMBNAILS THAT CONVERT</span><span class="star">✦</span><span>RETENTION SCRIPTS</span><span class="star">✦</span><span>APIS &amp; WEB APPS</span><span class="star">✦</span><span>VIDEO EDITING</span><span class="star">✦</span>
-      <span>AI AUTOMATION</span><span class="star">✦</span><span>CHURN &amp; REVENUE ANALYTICS</span><span class="star">✦</span><span>THUMBNAILS THAT CONVERT</span><span class="star">✦</span><span>RETENTION SCRIPTS</span><span class="star">✦</span><span>APIS &amp; WEB APPS</span><span class="star">✦</span><span>VIDEO EDITING</span><span class="star">✦</span>
+      <span>AI AUTOMATION</span><span class="star">✦</span><span>SALES FORECASTING</span><span class="star">✦</span><span>CUSTOMER ANALYTICS</span><span class="star">✦</span><span>THUMBNAILS THAT CONVERT</span><span class="star">✦</span><span>RETENTION SCRIPTS</span><span class="star">✦</span><span>APIS &amp; WEB APPS</span><span class="star">✦</span><span>VIDEO EDITING</span><span class="star">✦</span>
+      <span>AI AUTOMATION</span><span class="star">✦</span><span>SALES FORECASTING</span><span class="star">✦</span><span>CUSTOMER ANALYTICS</span><span class="star">✦</span><span>THUMBNAILS THAT CONVERT</span><span class="star">✦</span><span>RETENTION SCRIPTS</span><span class="star">✦</span><span>APIS &amp; WEB APPS</span><span class="star">✦</span><span>VIDEO EDITING</span><span class="star">✦</span>
     </div>
   </div>
 
@@ -419,9 +419,9 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
             <div class="ico" aria-hidden="true">📈</div>
             <h3>Data &amp; revenue analytics</h3>
             <p class="out">Goal: keep more of the revenue you already have.</p>
-            <p>Churn prediction, customer risk scoring and dashboards that turn your customer data into a ranked list of who to contact and what to offer.</p>
-            <ul><li>Churn and revenue-at-risk models</li><li>Interactive dashboards (Streamlit)</li><li>CSV in, prioritised action list out</li></ul>
-            <div class="fit"><b>Good fit if</b> you run a subscription or repeat-purchase business.</div>
+            <p>Forecasts, customer segments and churn scores that turn your sales and customer data into decisions: what to stock, who to contact and what to offer.</p>
+            <ul><li>Sales and demand forecasting</li><li>Customer segmentation and lifetime value</li><li>Churn and revenue-at-risk models</li><li>Dashboards: CSV in, action list out</li></ul>
+            <div class="fit"><b>Good fit if</b> you sell to repeat customers or carry stock.</div>
           </article>
           <article class="svc">
             <div class="ico" aria-hidden="true">🎯</div>
@@ -447,9 +447,52 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
           <div>
             <div class="eyebrow">Case studies</div>
             <h2>Business problems, <span class="grad">working solutions.</span></h2>
-            <p class="sub">Each project starts with a cost a business actually has: lost customers, slow hiring, staff hunting through documents. All source code is open, so you can check the work.</p>
+            <p class="sub">Each project starts with a cost a business actually has: empty shelves, wasted discounts, lost customers, staff hunting through documents. All source code is open, so you can check the work.</p>
           </div>
           <a class="viewall" href="https://github.com/FahadAsad10?tab=repositories" target="_blank" rel="noopener">All repos ↗</a>
+        </div>
+
+        <div class="subhead">Business analytics</div>
+        <div class="bento">
+          <article class="card w6">
+            <a class="go" href="https://github.com/FahadAsad10/sales-forecaster" target="_blank" rel="noopener" aria-label="Sales Forecaster on GitHub">↗</a>
+            <div class="split">
+              <div>
+                <span class="tag">Demand forecasting · Inventory</span>
+                <h3>Sales Forecaster</h3>
+                <div class="impact">
+                  <div><small>Problem</small><span>Retailers reorder by rule of thumb, so shelves run empty in peak weeks and cash sits in the stockroom the rest of the time.</span></div>
+                  <div><small>Built</small><span>A forecast of the next 28 days for every store and category, a promotion what-if, and a reorder plan with safety stock you can download.</span></div>
+                  <div class="res"><small>Result</small><span>Weekly forecast error cut from 21% to 12%, a 43% improvement over the rule of thumb, with almost no bias.</span></div>
+                </div>
+                <div class="kpi"><span>Weekly WAPE 12.3%</span><span>6-fold backtest</span><span>Calibrated 80% range</span></div>
+                <p class="note">Measured on a rolling backtest over two years of realistic synthetic retail sales.</p>
+                <a class="live" href="sales-forecaster/">▶ Try the live demo</a>
+                <div class="chips"><span>Python</span><span>scikit-learn</span><span>Time series</span><span>Streamlit</span><span>Docker</span></div>
+              </div>
+              <div class="shot"><img src="assets/sales-forecaster.jpg" alt="Sales Forecaster dashboard showing a 28-day revenue forecast with an 80% range" loading="lazy"></div>
+            </div>
+          </article>
+
+          <article class="card w6">
+            <a class="go" href="https://github.com/FahadAsad10/customer-segments" target="_blank" rel="noopener" aria-label="Customer Segments on GitHub">↗</a>
+            <div class="split">
+              <div>
+                <span class="tag">Marketing analytics · CLV</span>
+                <h3>Customer Segments</h3>
+                <div class="impact">
+                  <div><small>Problem</small><span>Shops send everyone the same discount, wasting margin on loyal buyers and missing the valuable customers who are quietly leaving.</span></div>
+                  <div><small>Built</small><span>RFM segments checked against k-means clusters, a lifetime value and buy-again model, and a playbook with an exportable list for every segment.</span></div>
+                  <div class="res"><small>Result</small><span>Shows that 20% of customers bring in 69% of revenue, and flags 734 lapsing high-value customers worth about €87k every six months.</span></div>
+                </div>
+                <div class="kpi"><span>9 segments</span><span>Buy-again AUC 0.79</span><span>Out-of-time tested</span></div>
+                <p class="note">Built on two years of realistic synthetic orders for 5,000 customers.</p>
+                <a class="live" href="customer-segments/">▶ Try the live demo</a>
+                <div class="chips"><span>Python</span><span>pandas</span><span>k-means</span><span>scikit-learn</span><span>Streamlit</span></div>
+              </div>
+              <div class="shot"><img src="assets/customer-segments.jpg" alt="Customer Segments dashboard with a segment treemap and share of revenue by segment" loading="lazy"></div>
+            </div>
+          </article>
         </div>
 
         <div class="subhead">Revenue &amp; operations</div>
@@ -761,7 +804,7 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
   fetch('https://api.github.com/users/FahadAsad10/repos?sort=updated&per_page=7')
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (repos) {
-      repos = repos.filter(function (r) { return !r.fork && !/\.github\.io$/i.test(r.name) && r.name.toLowerCase() !== 'fahadasad10' && ['resumefit-ai', 'askmydocs', 'github-pulse-mcp', 'churn-radar', 'taskhub-api', 'snaplink-go'].indexOf(r.name.toLowerCase()) < 0; }).slice(0, 6);
+      repos = repos.filter(function (r) { return !r.fork && !/\.github\.io$/i.test(r.name) && r.name.toLowerCase() !== 'fahadasad10' && ['resumefit-ai', 'askmydocs', 'github-pulse-mcp', 'churn-radar', 'taskhub-api', 'snaplink-go', 'sales-forecaster', 'customer-segments'].indexOf(r.name.toLowerCase()) < 0; }).slice(0, 6);
       if (!repos.length) return;
       grid.innerHTML = repos.map(function (r) {
         return '<a class="repo" href="' + esc(r.html_url) + '" target="_blank" rel="noopener"><span class="path">FahadAsad10 / ' + esc(r.name) + '</span><b>' + esc(r.name.replace(/[-_]+/g, ' ')) + '</b><p>' + esc(r.description || 'No description yet.') + '</p>' + (r.language ? '<span class="lang">● ' + esc(r.language) + '</span>' : '') + '</a>';

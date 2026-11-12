@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fahad Asad Portfolio</title>
+<title>Fahad Asad | Content &amp; Software for Growing Businesses</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Fahad Asad: thumbnail designer, scriptwriter and developer building AI-powered web apps.">
+<meta name="description" content="Fahad Asad helps creators and small businesses grow: thumbnails and scripts that win the click, and AI tools, dashboards and APIs that cut manual work.">
 <link rel="canonical" href="https://fahadasad10.github.io/">
 <meta name="theme-color" content="#05080d">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fahad Asad">
 <meta property="og:url" content="https://fahadasad10.github.io/">
-<meta property="og:title" content="Fahad Asad: developer, designer and scriptwriter">
-<meta property="og:description" content="AI apps, APIs and ML tools (ResumeFit AI, AskMyDocs, Churn Radar, Snaplink and more), plus YouTube thumbnails and scripts.">
+<meta property="og:title" content="Fahad Asad: content that gets clicked, software that saves time">
+<meta property="og:description" content="Thumbnails, scripts and editing that grow an audience, plus AI tools, churn dashboards and fast APIs that save businesses time and revenue.">
 <meta property="og:image" content="https://fahadasad10.github.io/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Fahad Asad portfolio: developer building AI apps, APIs and ML tools">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Fahad Asad: developer, designer and scriptwriter">
-<meta name="twitter:description" content="AI apps, APIs and ML tools, plus YouTube thumbnails and scripts.">
+<meta name="twitter:title" content="Fahad Asad: content that gets clicked, software that saves time">
+<meta name="twitter:description" content="Thumbnails and scripts that grow an audience, plus AI tools and data products that save time and revenue.">
 <meta name="twitter:image" content="https://fahadasad10.github.io/assets/og-image.png">
 <script type="application/ld+json">
 {
@@ -28,7 +28,8 @@
   "name": "Fahad Asad",
   "url": "https://fahadasad10.github.io/",
   "image": "https://fahadasad10.github.io/assets/og-image.png",
-  "jobTitle": "Developer, thumbnail designer and scriptwriter",
+  "jobTitle": "Freelance developer and content strategist",
+  "knowsAbout": ["AI automation", "Machine learning", "Web development", "YouTube thumbnails", "Scriptwriting", "Video editing"],
   "sameAs": [
     "https://github.com/FahadAsad10",
     "https://www.linkedin.com/in/fahad-asad-159172297/",
@@ -41,7 +42,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <style>
-/* Layout: dark cinematic single column. Glowing hero + terminal card, ticker, thumbnail reel, script accordion, AI project bento, about timeline, contact panel */
+/* Layout: dark cinematic single column. Outcome hero + engagement card, proof stats, services, case-study bento, thumbnail reel, scripts, process, about + FAQ, contact brief */
 :root {
   --bg: #05080d;
   --bg-2: #0a1018;
@@ -104,7 +105,7 @@ header.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; 
 .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); animation: pulse 2s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(47,243,214,.6); } 70% { box-shadow: 0 0 0 10px rgba(47,243,214,0); } 100% { box-shadow: 0 0 0 0 rgba(47,243,214,0); } }
 h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
-h1 { font-size: clamp(3rem, 8vw, 6.2rem); line-height: .92; letter-spacing: -.035em; font-weight: 800; margin-top: 22px; }
+h1 { font-size: clamp(2.6rem, 5.4vw, 5rem); line-height: .92; letter-spacing: -.035em; font-weight: 800; margin-top: 22px; }
 .grad { background: linear-gradient(100deg, var(--cyan) 0%, var(--blue) 45%, var(--violet) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .role { font: 500 1.05rem var(--mono); color: var(--muted); margin-top: 22px; min-height: 1.6em; }
 .role .typed { color: var(--ink); }
@@ -251,6 +252,54 @@ h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); letter-spacing: -.025em; line-height
 footer { padding-block: 48px 40px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font: .8rem var(--mono); color: var(--muted); }
 footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
 
+/* services */
+.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+.svc { position: relative; border-radius: 22px; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015)); padding: 28px; display: flex; flex-direction: column; min-width: 0; transition: border-color .3s, transform .3s; }
+.svc:hover { border-color: rgba(47,243,214,.35); transform: translateY(-3px); }
+.svc .ico { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; font-size: 1.3rem; background: linear-gradient(135deg, rgba(47,243,214,.18), rgba(155,123,255,.18)); border: 1px solid var(--line); }
+.svc h3 { font-size: 1.45rem; margin-top: 18px; letter-spacing: -.01em; }
+.svc .out { font: 600 1rem var(--body); color: var(--cyan); margin: 6px 0 0; }
+.svc p { color: var(--muted); margin: 10px 0 0; }
+.svc ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 6px; font-size: .92rem; }
+.svc ul li::before { content: "✓ "; color: var(--cyan); font-weight: 700; }
+.svc .fit { margin-top: auto; padding-top: 18px; font: .78rem/1.6 var(--mono); color: var(--muted); }
+.svc .fit b { color: var(--ink); font-weight: 500; }
+
+/* case study impact */
+.impact { margin-top: 18px; display: grid; gap: 10px; }
+.impact div { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 12px; font-size: .93rem; color: var(--muted); }
+.impact small { font: 700 .68rem/1.9 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--violet); }
+.impact div.res small { color: var(--cyan); }
+.impact div.res span { color: var(--ink); font-weight: 600; }
+.kpi { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.kpi span { font: 600 .8rem var(--mono); padding: 6px 10px; border-radius: 8px; color: var(--amber); background: rgba(255,181,71,.08); border: 1px solid rgba(255,181,71,.25); }
+.note { font: .72rem/1.5 var(--mono); color: #66778a; margin-top: 10px; }
+
+/* process */
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 40px; counter-reset: st; }
+.step { border-top: 2px solid var(--line); padding-top: 20px; position: relative; }
+.step::before { counter-increment: st; content: "0" counter(st); font: 800 2.4rem/1 var(--display); background: linear-gradient(120deg, var(--cyan), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.step::after { content: ""; position: absolute; top: -2px; left: 0; width: 48px; height: 2px; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+.step h3 { font-size: 1.2rem; margin-top: 10px; }
+.step p { color: var(--muted); margin: 6px 0 0; font-size: .95rem; }
+
+/* clients + faq */
+.who { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+.who div { padding: 18px 20px; border-radius: 16px; border: 1px solid var(--line); background: var(--glass); }
+.who b { display: block; font-weight: 700; }
+.who span { color: var(--muted); font-size: .9rem; }
+.faq { margin-top: 40px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.faq details { border: 1px solid var(--line); border-radius: 16px; background: var(--glass); padding: 0 20px; }
+.faq details[open] { border-color: rgba(47,243,214,.35); }
+.faq summary { cursor: pointer; padding: 18px 0; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--cyan); font-weight: 800; }
+.faq details[open] summary::after { content: "−"; }
+.faq p { margin: 0 0 18px; color: var(--muted); }
+.brief { margin-top: 26px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.brief div { padding: 14px 16px; border-radius: 12px; border: 1px dashed rgba(47,243,214,.3); font-size: .92rem; color: var(--muted); }
+.brief b { display: block; color: var(--ink); font: 600 .72rem var(--mono); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2px; }
+
 @media (max-width: 960px) {
   .hero { grid-template-columns: minmax(0, 1fr); padding-top: 48px; }
   .w4, .w3, .w2 { grid-column: span 6; }
@@ -258,6 +307,8 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
   .split, .about { grid-template-columns: minmax(0, 1fr); }
   .repos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .channels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps, .who { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .faq { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 720px) {
   .nav ul { display: none; }
@@ -265,6 +316,9 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
   .thumb { flex-basis: 260px; }
   .repos { grid-template-columns: minmax(0, 1fr); }
   .shot { height: 200px; }
+  .services, .brief { grid-template-columns: minmax(0, 1fr); }
+  .steps, .who { grid-template-columns: minmax(0, 1fr); }
+  .impact div { grid-template-columns: minmax(0, 1fr); gap: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -282,13 +336,13 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
     <div class="bar">
       <a class="logo" href="#top" aria-label="Back to top">FA</a>
       <ul>
-        <li><a href="#thumbnails" data-nav>Thumbnails</a></li>
-        <li><a href="#scripts" data-nav>Scripts</a></li>
-        <li><a href="#code" data-nav>Code</a></li>
-        <li><a href="#about" data-nav>About</a></li>
+        <li><a href="#services" data-nav>Services</a></li>
+        <li><a href="#work" data-nav>Case studies</a></li>
+        <li><a href="#thumbnails" data-nav>Content</a></li>
+        <li><a href="#process" data-nav>Process</a></li>
         <li><a href="#contact" data-nav>Contact</a></li>
       </ul>
-      <a class="hire" href="#contact">Hire me</a>
+      <a class="hire" href="#contact">Start a project</a>
     </div>
   </header>
 
@@ -296,53 +350,207 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
     <div class="inner">
       <div class="hero">
         <div>
-          <span class="pill"><span class="pulse"></span>Available for freelance · Karachi ⇄ Ancona</span>
-          <h1>Hi, I'm<br><span class="grad">Fahad Asad.</span></h1>
-          <div class="role">// <span class="typed" id="typed">Thumbnail Designer</span><span class="caret" aria-hidden="true"></span></div>
-          <p class="lede">I design <b>thumbnails that get the click</b>, write <b>scripts that keep people watching</b>, and build <b>software</b>: AI web apps with Next.js and the Claude API, backend APIs in Python and Go, and machine learning projects.</p>
+          <span class="pill"><span class="pulse"></span>Taking new projects · remote, EU &amp; Asia hours</span>
+          <h1>More attention.<br><span class="grad">Less busywork.</span></h1>
+          <div class="role">// Fahad Asad · <span class="typed" id="typed">AI automation</span><span class="caret" aria-hidden="true"></span></div>
+          <p class="lede">I help <b>creators and small businesses</b> grow on two fronts: <b>content that wins the click and holds attention</b>, and <b>AI tools, dashboards and APIs</b> that take hours of manual work off your team and show you where revenue is leaking.</p>
           <div class="cta">
-            <a class="btn glow" href="#thumbnails">See my work →</a>
-            <a class="btn" href="#contact">Work with me</a>
+            <a class="btn glow" href="#contact">Book a free 20-min call →</a>
+            <a class="btn" href="#work">See results</a>
           </div>
           <div class="socials">
-            <a href="https://github.com/FahadAsad10" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.upwork.com/freelancers/~01537d5162db03cc81" target="_blank" rel="noopener">Hire on Upwork ↗</a>
             <a href="https://www.linkedin.com/in/fahad-asad-159172297/" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href="https://www.upwork.com/freelancers/~01537d5162db03cc81" target="_blank" rel="noopener">Upwork ↗</a>
+            <a href="https://github.com/FahadAsad10" target="_blank" rel="noopener">GitHub ↗</a>
             <a href="https://discord.com/users/realfahadasad" target="_blank" rel="noopener">Discord ↗</a>
           </div>
         </div>
 
-        <div class="term" aria-label="Profile summary written as code">
-          <div class="top"><i></i><i></i><i></i><span>~/fahad/about.ts</span></div>
-<pre><span class="k">const</span> fahad = {
-  based:    <span class="s">"Karachi, PK · Ancona, IT"</span>,
-  studying: <span class="s">"Digital Economics &amp; Business"</span>,
-  aLevels:  [<span class="s">"Computer Science"</span>, <span class="s">"Maths"</span>, <span class="s">"Physics"</span>],
-  crafts:   [<span class="s">"Thumbnails"</span>, <span class="s">"Scripts"</span>,
-             <span class="s">"Video editing"</span>, <span class="s">"Code"</span>],
-  building: [<span class="s">"Next.js"</span>, <span class="s">"Claude API"</span>, <span class="s">"FastAPI"</span>,
-             <span class="s">"Go"</span>, <span class="s">"Docker"</span>, <span class="s">"scikit-learn"</span>],
-  tutors:   <span class="s">"A-Level CS, Maths, Physics"</span>,
+        <div class="term" aria-label="How a project with Fahad works, written as code">
+          <div class="top"><i></i><i></i><i></i><span>~/fahad/engagement.ts</span></div>
+<pre><span class="k">const</span> project = {
+  you_bring: <span class="s">"a goal and a deadline"</span>,
+  i_deliver: [<span class="s">"working product"</span>, <span class="s">"source code"</span>,
+              <span class="s">"handover docs"</span>],
+  measured_by: [<span class="s">"click-through"</span>, <span class="s">"watch time"</span>,
+                <span class="s">"hours saved"</span>, <span class="s">"revenue kept"</span>],
+  updates:   <span class="s">"weekly, in plain English"</span>,
+  background: <span class="s">"Digital Economics &amp; Business"</span>,
 };
 
-<span class="c">// $ npm run hire-fahad</span>
-<span class="p">✔</span> ready in <span class="n">0.3s</span></pre>
+<span class="c">// $ npm run start-project</span>
+<span class="p">✔</span> plan ready, build started</pre>
         </div>
       </div>
 
       <div class="facts">
-        <div class="fact"><b>4</b><span>Crafts: design, script, edit, code</span></div>
-        <div class="fact"><b>6</b><span>Open-source projects on GitHub</span></div>
-        <div class="fact"><b>A Levels</b><span>CS · Maths · Physics</span></div>
-        <div class="fact"><b>2</b><span>Countries, one inbox</span></div>
+        <div class="fact"><b>76%</b><span>of churners flagged in advance by Churn Radar</span></div>
+        <div class="fact"><b>13k/s</b><span>requests served by one Snaplink container</span></div>
+        <div class="fact"><b>6</b><span>products shipped, all with source code</span></div>
+        <div class="fact"><b>4-in-1</b><span>design, script, edit &amp; code, one point of contact</span></div>
       </div>
     </div>
   </div>
 
   <div class="ticker" aria-hidden="true">
     <div class="tt">
-      <span>THUMBNAIL DESIGN</span><span class="star">✦</span><span>SCRIPTWRITING</span><span class="star">✦</span><span>VIDEO EDITING</span><span class="star">✦</span><span>AI WEB APPS</span><span class="star">✦</span><span>PYTHON · GO · DOCKER</span><span class="star">✦</span><span>A-LEVEL TUTORING</span><span class="star">✦</span>
-      <span>THUMBNAIL DESIGN</span><span class="star">✦</span><span>SCRIPTWRITING</span><span class="star">✦</span><span>VIDEO EDITING</span><span class="star">✦</span><span>AI WEB APPS</span><span class="star">✦</span><span>PYTHON · GO · DOCKER</span><span class="star">✦</span><span>A-LEVEL TUTORING</span><span class="star">✦</span>
+      <span>AI AUTOMATION</span><span class="star">✦</span><span>CHURN &amp; REVENUE ANALYTICS</span><span class="star">✦</span><span>THUMBNAILS THAT CONVERT</span><span class="star">✦</span><span>RETENTION SCRIPTS</span><span class="star">✦</span><span>APIS &amp; WEB APPS</span><span class="star">✦</span><span>VIDEO EDITING</span><span class="star">✦</span>
+      <span>AI AUTOMATION</span><span class="star">✦</span><span>CHURN &amp; REVENUE ANALYTICS</span><span class="star">✦</span><span>THUMBNAILS THAT CONVERT</span><span class="star">✦</span><span>RETENTION SCRIPTS</span><span class="star">✦</span><span>APIS &amp; WEB APPS</span><span class="star">✦</span><span>VIDEO EDITING</span><span class="star">✦</span>
+    </div>
+  </div>
+
+  <div class="gutter">
+    <div class="inner">
+
+      <section id="services">
+        <div class="eyebrow">Services</div>
+        <h2>What I can do <span class="grad">for your business.</span></h2>
+        <p class="sub">Four ways I usually help. Each one starts from the number you want to move, not from the tool.</p>
+        <div class="services">
+          <article class="svc">
+            <div class="ico" aria-hidden="true">⚡</div>
+            <h3>AI tools &amp; automation</h3>
+            <p class="out">Goal: hours back every week.</p>
+            <p>Custom assistants built on the Claude API that read your documents, screen CVs, draft replies or answer staff questions, with sources your team can check.</p>
+            <ul><li>Document Q&amp;A with citations</li><li>CV and application screening</li><li>Internal tools wired into your data</li></ul>
+            <div class="fit"><b>Good fit if</b> your team copies, pastes or searches the same information every day.</div>
+          </article>
+          <article class="svc">
+            <div class="ico" aria-hidden="true">📈</div>
+            <h3>Data &amp; revenue analytics</h3>
+            <p class="out">Goal: keep more of the revenue you already have.</p>
+            <p>Churn prediction, customer risk scoring and dashboards that turn your customer data into a ranked list of who to contact and what to offer.</p>
+            <ul><li>Churn and revenue-at-risk models</li><li>Interactive dashboards (Streamlit)</li><li>CSV in, prioritised action list out</li></ul>
+            <div class="fit"><b>Good fit if</b> you run a subscription or repeat-purchase business.</div>
+          </article>
+          <article class="svc">
+            <div class="ico" aria-hidden="true">🎯</div>
+            <h3>Thumbnails &amp; packaging</h3>
+            <p class="out">Goal: higher click-through rate.</p>
+            <p>Thumbnails and titles designed as a pair, built around one clear promise so the right viewer clicks in under a second.</p>
+            <ul><li>Concept options per video</li><li>A/B test variants</li><li>Channel-wide visual system</li></ul>
+            <div class="fit"><b>Good fit if</b> your videos are good but the views don't show it.</div>
+          </article>
+          <article class="svc">
+            <div class="ico" aria-hidden="true">🎬</div>
+            <h3>Scripts &amp; editing</h3>
+            <p class="out">Goal: longer watch time.</p>
+            <p>Hooks, structure and pacing written to keep people watching, then edited so nothing drags. One person from idea to export.</p>
+            <ul><li>Research-backed scripts</li><li>Hook rewrites for existing videos</li><li>Editing for YouTube and shorts</li></ul>
+            <div class="fit"><b>Good fit if</b> viewers click, then leave in the first 30 seconds.</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow">Case studies</div>
+            <h2>Business problems, <span class="grad">working solutions.</span></h2>
+            <p class="sub">Each project starts with a cost a business actually has: lost customers, slow hiring, staff hunting through documents. All source code is open, so you can check the work.</p>
+          </div>
+          <a class="viewall" href="https://github.com/FahadAsad10?tab=repositories" target="_blank" rel="noopener">All repos ↗</a>
+        </div>
+
+        <div class="subhead">Revenue &amp; operations</div>
+        <div class="bento">
+          <article class="card w4">
+            <a class="go" href="https://github.com/FahadAsad10/churn-radar" target="_blank" rel="noopener" aria-label="Churn Radar on GitHub">↗</a>
+            <span class="tag">Retention analytics</span>
+            <h3>Churn Radar</h3>
+            <div class="impact">
+              <div><small>Problem</small><span>Subscription businesses lose customers quietly, and find out only when the revenue is gone.</span></div>
+              <div><small>Built</small><span>A model that scores every customer's risk of cancelling, totals the monthly revenue at risk, and ranks the retention offers most likely to keep each one.</span></div>
+              <div class="res"><small>Result</small><span>Flags 76% of customers who go on to cancel, so a retention team knows exactly who to call first.</span></div>
+            </div>
+            <div class="kpi"><span>Recall 0.76</span><span>ROC-AUC 0.83</span><span>Revenue-at-risk view</span></div>
+            <p class="note">Measured on a held-out test set of realistic synthetic subscription data.</p>
+            <div class="shot"><img src="assets/churn-radar.jpg" alt="Churn Radar dashboard showing churn rate, high-risk customers and monthly revenue at risk" loading="lazy"></div>
+            <a class="live" href="churn-radar/">▶ Try the live demo</a>
+            <div class="chips"><span>Python</span><span>scikit-learn</span><span>pandas</span><span>Streamlit</span><span>Docker</span></div>
+          </article>
+
+          <article class="card w2">
+            <a class="go" href="https://github.com/FahadAsad10/taskhub-api" target="_blank" rel="noopener" aria-label="TaskHub API on GitHub">↗</a>
+            <span class="tag">Internal tools</span>
+            <h3>TaskHub API</h3>
+            <div class="impact">
+              <div><small>Problem</small><span>Teams track work in spreadsheets with no access control or reporting.</span></div>
+              <div class="res"><small>Result</small><span>A secure backend for a team task tool, with logins, projects and progress stats, ready to deploy.</span></div>
+            </div>
+<div class="mcp"><span class="w">GET</span> /projects/1/stats
+<span class="y">●</span> completion <span class="w">50%</span>, overdue <span class="w">1</span></div>
+            <div class="chips"><span>FastAPI</span><span>PostgreSQL</span><span>JWT</span><span>Docker</span></div>
+          </article>
+
+          <article class="card w6">
+            <a class="go" href="https://github.com/FahadAsad10/snaplink-go" target="_blank" rel="noopener" aria-label="Snaplink on GitHub">↗</a>
+            <div class="split">
+              <div>
+                <span class="tag">Marketing infrastructure</span>
+                <h3>Snaplink</h3>
+                <div class="impact">
+                  <div><small>Problem</small><span>Campaign links need to survive traffic spikes and report clicks, without a big hosting bill.</span></div>
+                  <div><small>Built</small><span>A branded link shortener with click tracking, expiring links, rate limiting and live metrics, ready for Kubernetes.</span></div>
+                  <div class="res"><small>Result</small><span>About 13,000 requests a second at 11 ms (p99) from a single small container.</span></div>
+                </div>
+                <div class="chips"><span>Go</span><span>Redis</span><span>Kubernetes</span><span>Prometheus</span></div>
+              </div>
+              <div class="shot"><img src="assets/snaplink-go.jpg" alt="Snaplink web UI showing a shortened link with 42 clicks" loading="lazy"></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="subhead">AI automation</div>
+        <div class="bento">
+          <article class="card w6">
+            <a class="go" href="https://github.com/FahadAsad10/askmydocs" target="_blank" rel="noopener" aria-label="AskMyDocs on GitHub">↗</a>
+            <div class="split">
+              <div>
+                <span class="tag">Knowledge assistant</span>
+                <h3>AskMyDocs</h3>
+                <div class="impact">
+                  <div><small>Problem</small><span>Staff lose time digging through policies and contracts, and AI answers can't be trusted without a source.</span></div>
+                  <div><small>Built</small><span>Upload PDFs and ask questions in plain English. Every answer links to the exact passage it came from.</span></div>
+                  <div class="res"><small>Result</small><span>Answers in seconds that anyone can verify in one click, with prompt caching keeping follow-up questions cheap.</span></div>
+                </div>
+                <div class="chips"><span>Next.js</span><span>Claude API</span><span>Citations</span><span>Prompt caching</span></div>
+              </div>
+              <div class="shot"><img src="assets/askmydocs.jpg" alt="AskMyDocs answering questions about a remote work policy with numbered citations" loading="lazy"></div>
+            </div>
+          </article>
+
+          <article class="card w4">
+            <a class="go" href="https://github.com/FahadAsad10/resumefit-ai" target="_blank" rel="noopener" aria-label="ResumeFit AI on GitHub">↗</a>
+            <span class="tag">Hiring</span>
+            <h3>ResumeFit AI</h3>
+            <div class="impact">
+              <div><small>Problem</small><span>Reading every CV against a job post by hand is slow and inconsistent.</span></div>
+              <div class="res"><small>Result</small><span>A fit score out of 100, missing skills and ATS keywords in seconds, with the same criteria applied to every candidate.</span></div>
+            </div>
+            <div class="shot"><img src="assets/resumefit-ai.jpg" alt="ResumeFit AI showing a fit score of 72 with strengths and missing requirements" loading="lazy"></div>
+            <div class="chips"><span>Next.js</span><span>TypeScript</span><span>Claude structured outputs</span></div>
+          </article>
+
+          <article class="card w2">
+            <a class="go" href="https://github.com/FahadAsad10/github-pulse-mcp" target="_blank" rel="noopener" aria-label="GitHub Pulse MCP on GitHub">↗</a>
+            <span class="tag">Engineering reporting</span>
+            <h3>GitHub Pulse</h3>
+            <div class="impact">
+              <div class="res"><small>Result</small><span>Managers ask Claude for repo health and a weekly activity report instead of building dashboards.</span></div>
+            </div>
+<div class="mcp"><span class="w">&gt; repo_health</span>
+<span class="ok">✔</span> CI passing
+<span class="y">●</span> score <span class="w">92/100</span></div>
+            <div class="chips"><span>TypeScript</span><span>MCP</span></div>
+          </article>
+        </div>
+
+        <div class="subhead">Latest on GitHub</div>
+        <div class="repos" id="repoGrid">
+          <a class="repo" href="https://github.com/FahadAsad10?tab=repositories" target="_blank" rel="noopener"><span class="path">github.com/FahadAsad10</span><b>Browse all repositories</b><p>Recent repos load here automatically.</p></a>
+        </div>
+      </section>
     </div>
   </div>
 
@@ -351,9 +559,9 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
       <div class="inner">
         <div class="sec-head">
           <div>
-            <div class="eyebrow">Thumbnails</div>
-            <h2>Made to <span class="grad">get the click.</span></h2>
-            <p class="sub">Every thumbnail here was made for a real video. Click any one to see it full size.</p>
+            <div class="eyebrow">Content · Thumbnails</div>
+            <h2>Packaging that <span class="grad">earns the click.</span></h2>
+            <p class="sub">The thumbnail is the ad for your video. Every one here was made for a real upload. Click any one to see it full size.</p>
           </div>
           <a class="viewall" href="https://drive.google.com/drive/folders/1rLJzKm04Op0R-kJ-ooRHFyPp0JKZSM3T?usp=drive_link" target="_blank" rel="noopener">View all ↗</a>
         </div>
@@ -368,133 +576,69 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
       <section id="scripts">
         <div class="sec-head">
           <div>
-            <div class="eyebrow">Scriptwriting</div>
-            <h2>The script decides <span class="grad">if they stay.</span></h2>
-            <p class="sub">Open a script to read a real excerpt, straight from my writing folder.</p>
+            <div class="eyebrow">Content · Scripts</div>
+            <h2>Watch time is <span class="grad">written first.</span></h2>
+            <p class="sub">A strong hook and tight structure keep viewers past the first 30 seconds. Open a script to read a real excerpt.</p>
           </div>
           <a class="viewall" href="https://drive.google.com/drive/folders/1s30vUoAqecIyXgkL60pChBo14KybyTR5?usp=drive_link" target="_blank" rel="noopener">View all ↗</a>
         </div>
         <div class="scripts" id="writeList"></div>
       </section>
 
-      <section id="code">
-        <div class="sec-head">
-          <div>
-            <div class="eyebrow">Code</div>
-            <h2>I build <span class="grad">software, too.</span></h2>
-            <p class="sub">AI apps built with Next.js and the Claude API, plus backend, data and cloud projects in Python and Go. All source code is open on GitHub.</p>
-          </div>
-          <a class="viewall" href="https://github.com/FahadAsad10?tab=repositories" target="_blank" rel="noopener">All repos ↗</a>
+      <section id="process">
+        <div class="eyebrow">Process</div>
+        <h2>Simple, clear, <span class="grad">no surprises.</span></h2>
+        <div class="steps">
+          <div class="step"><h3>Free intro call</h3><p>20 minutes on your goal, your numbers and your deadline. No pitch.</p></div>
+          <div class="step"><h3>Fixed plan &amp; quote</h3><p>A written scope, timeline and price before any work starts.</p></div>
+          <div class="step"><h3>Build in the open</h3><p>Weekly updates you can see and click, so feedback lands early.</p></div>
+          <div class="step"><h3>Handover</h3><p>You own everything: files, source code and a short guide to run it.</p></div>
         </div>
 
-        <div class="subhead">AI apps</div>
-        <div class="bento">
-          <article class="card w4">
-            <a class="go" href="https://github.com/FahadAsad10/resumefit-ai" target="_blank" rel="noopener" aria-label="ResumeFit AI on GitHub">↗</a>
-            <span class="tag">AI · Careers</span>
-            <h3>ResumeFit AI</h3>
-            <p>Paste a job post and your CV. Get a fit score out of 100, the skills you're missing, the keywords applicant-tracking systems look for, and stronger bullet points you can copy straight in.</p>
-            <div class="shot"><img src="assets/resumefit-ai.jpg" alt="ResumeFit AI showing a fit score of 72 with strengths and missing requirements" loading="lazy"></div>
-            <div class="chips"><span>Next.js</span><span>TypeScript</span><span>Zod</span><span>Claude structured outputs</span></div>
-          </article>
-
-          <article class="card w2">
-            <a class="go" href="https://github.com/FahadAsad10/github-pulse-mcp" target="_blank" rel="noopener" aria-label="GitHub Pulse MCP on GitHub">↗</a>
-            <span class="tag">MCP server</span>
-            <h3>GitHub Pulse MCP</h3>
-            <p>Gives Claude a set of GitHub tools: activity summaries, repo health scores and good first issues.</p>
-<div class="mcp"><span class="w">&gt; repo_health</span> vercel/next.js
-<span class="ok">✔</span> CI passing
-<span class="ok">✔</span> README, license
-<span class="y">●</span> score <span class="w">92/100</span></div>
-            <div class="chips"><span>TypeScript</span><span>MCP SDK</span><span>Vitest</span><span>GitHub Actions</span></div>
-          </article>
-
-          <article class="card w6">
-            <a class="go" href="https://github.com/FahadAsad10/askmydocs" target="_blank" rel="noopener" aria-label="AskMyDocs on GitHub">↗</a>
-            <div class="split">
-              <div>
-                <span class="tag">AI · Documents</span>
-                <h3>AskMyDocs</h3>
-                <p>Chat with your PDFs. Every answer links to the exact passage it came from, so you can check it in one click.</p>
-                <ul><li>Clickable citations from the Claude citations API</li><li>Streaming answers</li><li>Prompt caching keeps follow-up questions fast and cheap</li></ul>
-                <div class="chips"><span>Next.js</span><span>Claude API</span><span>Streaming</span><span>Prompt caching</span></div>
-              </div>
-              <div class="shot"><img src="assets/askmydocs.jpg" alt="AskMyDocs answering questions about a remote work policy with numbered citations" loading="lazy"></div>
-            </div>
-          </article>
-        </div>
-
-        <div class="subhead">Backend, data &amp; cloud</div>
-        <div class="bento">
-          <article class="card w4">
-            <a class="go" href="https://github.com/FahadAsad10/churn-radar" target="_blank" rel="noopener" aria-label="Churn Radar on GitHub">↗</a>
-            <span class="tag">Machine learning</span>
-            <h3>Churn Radar</h3>
-            <p>Predicts which subscription customers are about to cancel, shows the revenue at risk, and ranks the retention offers that would keep each one. Three models compared with cross-validation, tuned decision threshold, explainable drivers.</p>
-            <div class="shot"><img src="assets/churn-radar.jpg" alt="Churn Radar dashboard showing churn rate, high-risk customers and monthly revenue at risk" loading="lazy"></div>
-            <a class="live" href="churn-radar/">▶ Try the live demo</a>
-            <div class="chips"><span>Python</span><span>scikit-learn</span><span>pandas</span><span>Streamlit</span><span>Docker</span></div>
-          </article>
-
-          <article class="card w2">
-            <a class="go" href="https://github.com/FahadAsad10/taskhub-api" target="_blank" rel="noopener" aria-label="TaskHub API on GitHub">↗</a>
-            <span class="tag">REST API</span>
-            <h3>TaskHub API</h3>
-            <p>A production-style projects and tasks API with JWT auth, filtering, pagination and migrations.</p>
-<div class="mcp"><span class="w">$ docker compose up</span>
-<span class="ok">✔</span> postgres healthy
-<span class="ok">✔</span> alembic upgrade head
-<span class="w">GET</span> /projects/1/stats
-<span class="y">●</span> completion <span class="w">0.5</span>, overdue <span class="w">1</span></div>
-            <div class="chips"><span>FastAPI</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>JWT</span><span>Docker</span></div>
-          </article>
-
-          <article class="card w6">
-            <a class="go" href="https://github.com/FahadAsad10/snaplink-go" target="_blank" rel="noopener" aria-label="Snaplink on GitHub">↗</a>
-            <div class="split">
-              <div>
-                <span class="tag">Go · Cloud native</span>
-                <h3>Snaplink</h3>
-                <p>A fast URL shortener in Go, backed by Redis, ready to run on Kubernetes.</p>
-                <ul><li>About 13,000 requests per second in a single container</li><li>Atomic click counting and expiring links with Redis Lua scripts</li><li>Prometheus metrics, rate limiting, autoscaling Kubernetes manifests</li></ul>
-                <div class="chips"><span>Go</span><span>Redis</span><span>Kubernetes</span><span>Prometheus</span><span>GitHub Actions</span></div>
-              </div>
-              <div class="shot"><img src="assets/snaplink-go.jpg" alt="Snaplink web UI showing a shortened link with 42 clicks" loading="lazy"></div>
-            </div>
-          </article>
-        </div>
-
-        <div class="subhead">Latest on GitHub</div>
-        <div class="repos" id="repoGrid">
-          <a class="repo" href="https://github.com/FahadAsad10?tab=repositories" target="_blank" rel="noopener"><span class="path">github.com/FahadAsad10</span><b>Browse all repositories</b><p>Recent repos load here automatically.</p></a>
+        <div class="who">
+          <div><b>YouTubers &amp; creators</b><span>Thumbnails, scripts, editing</span></div>
+          <div><b>Startups</b><span>MVPs, APIs, AI features</span></div>
+          <div><b>Small businesses</b><span>Automation, dashboards</span></div>
+          <div><b>Agencies</b><span>White-label design &amp; dev</span></div>
         </div>
       </section>
 
       <section id="about">
         <div class="eyebrow">About</div>
-        <h2>Content and code, <span class="grad">same brain.</span></h2>
+        <h2>A developer who <span class="grad">thinks in revenue.</span></h2>
         <div class="about">
           <div>
-            <p>I'm <b>Fahad Asad</b>, a Digital Economics and Business student at the <b>Università Politecnica delle Marche</b> in Ancona, with A Levels in Computer Science, Maths and Physics.</p>
-            <p>I work across <b>thumbnail design, scriptwriting, video editing and social media management</b>, and I build web apps when a problem needs one. I also tutor Cambridge and Edexcel A-Level Computer Science, Maths and Physics.</p>
-            <p>Most of what's on this site exists because I needed it: a thumbnail for a real project, a script for a real video, a tool for a real problem. I like building things that work, whether that's a program or a piece of content.</p>
+            <p>I'm <b>Fahad Asad</b>. I study <b>Digital Economics and Business</b> at the Università Politecnica delle Marche in Ancona, with A Levels in Computer Science, Maths and Physics.</p>
+            <p>That mix shapes how I work. Before I design or build anything, I ask what it should change for the business: <b>more clicks, more watch time, fewer hours lost, fewer customers leaving</b>. Then I build the simplest thing that moves that number.</p>
+            <p>Clients get one person who can write the script, design the thumbnail, edit the video and build the tool behind it, without handoffs between four freelancers.</p>
           </div>
           <div class="tl">
+            <div class="ev"><small>NOW</small><h3>Freelance developer &amp; content partner</h3><p>AI tools, analytics, APIs, thumbnails, scripts and editing.</p></div>
             <div class="ev"><small>NOW</small><h3>Digital Economics &amp; Business</h3><p>Università Politecnica delle Marche, Ancona</p></div>
-            <div class="ev"><small>NOW</small><h3>Freelance creative</h3><p>Thumbnails, scripts, editing and social media for creators.</p></div>
             <div class="ev"><small>NOW</small><h3>A-Level tutor</h3><p>Cambridge and Edexcel Computer Science, Maths and Physics.</p></div>
             <div class="ev"><small>BEFORE</small><h3>A Levels</h3><p>Computer Science, Maths and Physics.</p></div>
           </div>
+        </div>
+
+        <div class="faq">
+          <details><summary>Do you work with clients outside Pakistan and Italy?</summary><p>Yes. Everything runs remotely, and splitting time between Karachi and Ancona means overlap with both European and Asian working hours.</p></details>
+          <details><summary>How do you price projects?</summary><p>A fixed price per project or per batch of thumbnails or scripts, agreed in writing before work starts. Ongoing work can move to a monthly retainer.</p></details>
+          <details><summary>Do I own the code and files?</summary><p>Yes. You get the source code, design files and a short guide, with no lock-in.</p></details>
+          <details><summary>Can you work with my existing team?</summary><p>Yes. I can plug into your GitHub, Slack or Drive and work alongside your developers, editors or marketers.</p></details>
         </div>
       </section>
 
       <section id="contact">
         <div class="contact">
-          <div class="eyebrow">Contact</div>
-          <h2 style="margin-top:14px">Let's make something <span class="grad">people click.</span></h2>
-          <p>Open for freelance work: thumbnails, scripts, editing or a web app. Email is quickest.</p>
-          <div class="mail"><code id="addr">m.fahadasadshaikh@gmail.com</code><button class="btn glow" id="copyEmailBtn" type="button">Copy email</button></div>
+          <div class="eyebrow">Start a project</div>
+          <h2 style="margin-top:14px">Tell me the goal. <span class="grad">I'll send a plan.</span></h2>
+          <p>Email me a few lines about what you want to change. I'll reply with questions or a short plan, and we can book a free 20-minute call.</p>
+          <div class="brief">
+            <div><b>Goal</b>More views, hours saved, fewer cancellations…</div>
+            <div><b>Timeline</b>When you need it live</div>
+            <div><b>Budget</b>A rough range is enough</div>
+          </div>
+          <div class="mail"><code id="addr">m.fahadasadshaikh@gmail.com</code><button class="btn glow" id="copyEmailBtn" type="button">Copy email</button><a class="btn" href="mailto:m.fahadasadshaikh@gmail.com?subject=Project%20enquiry&amp;body=Goal%3A%0ATimeline%3A%0ABudget%20range%3A%0ALinks%3A">Write an email →</a></div>
           <div class="channels">
             <a href="https://www.upwork.com/freelancers/~01537d5162db03cc81" target="_blank" rel="noopener"><small>Hire</small><b>Upwork ↗</b></a>
             <a href="https://www.linkedin.com/in/fahad-asad-159172297/" target="_blank" rel="noopener"><small>Connect</small><b>LinkedIn ↗</b></a>
@@ -504,7 +648,7 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
         </div>
       </section>
 
-      <footer><span>© 2026 Fahad Asad</span><a href="#top">Back to top ↑</a></footer>
+      <footer><span>© 2026 Fahad Asad · Content &amp; software for growing businesses</span><a href="#top">Back to top ↑</a></footer>
     </div>
   </div>
 </div>
@@ -517,7 +661,7 @@ footer a { text-decoration: none; } footer a:hover { color: var(--cyan); }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 
   // Typing role line (starts on a visible word)
-  var words = ['Thumbnail Designer', 'Scriptwriter', 'AI Web Developer', 'Video Editor', 'A-Level Tutor'];
+  var words = ['AI automation', 'Revenue analytics', 'Thumbnails that convert', 'Retention scripts', 'Web apps & APIs'];
   var el = document.getElementById('typed'), wi = 0, ci = words[0].length, del = true;
   if (!reduce) setTimeout(function tick() {
     if (del) { ci--; if (ci === 0) { del = false; wi = (wi + 1) % words.length; } }

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invoice Extractor · live demo</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fahadasad10.github.io/invoice-extractor/">
+<meta property="og:title" content="Invoice Extractor: invoices and receipts to a checked spreadsheet">
+<meta property="og:description" content="Review six sample invoices and receipts that Claude extracted, see what the checks flag, and download the Excel workbook. Runs in your browser.">
+<meta property="og:image" content="https://fahadasad10.github.io/assets/invoice-extractor.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Live demo of Invoice Extractor by Fahad Asad: Claude reads invoices and receipts, Python checks the totals and VAT, and you export to Excel or CSV. Runs in your browser with Python (Streamlit via stlite).">
+<link rel="icon" href="../favicon.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.0/build/stlite.css">
+<style>
+  html, body { margin: 0; background: #0b0b10; color: #ececf1; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .bar { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid #24242f; font-size: 14px; }
+  .bar a { color: #7f9cf5; text-decoration: none; }
+  .bar a:hover { text-decoration: underline; }
+  .bar span { color: #9a9aab; }
+  #boot { padding: 48px 16px; text-align: center; color: #9a9aab; }
+  #boot b { color: #ececf1; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="../">← Fahad Asad</a>
+  <span>Runs fully in your browser (Python via WebAssembly). First load takes ~30 s.</span>
+  <a href="https://github.com/FahadAsad10/invoice-extractor" target="_blank" rel="noopener">Source on GitHub ↗</a>
+</div>
+<div id="root"><div id="boot"><b>🧾 Invoice Extractor</b><br>Loading Python and the six sample documents in your browser…</div></div>
+<script type="module">
+import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.0/build/stlite.js";
+mount(
+  {
+    entrypoint: "app.py",
+    requirements: ["pandas", "pydantic", "openpyxl", "plotly"],
+    files: {
+      "app.py": { url: "app.py" },
+      "invoice_extractor/__init__.py": { url: "invoice_extractor/__init__.py" },
+      "invoice_extractor/schema.py": { url: "invoice_extractor/schema.py" },
+      "invoice_extractor/extract.py": { url: "invoice_extractor/extract.py" },
+      "invoice_extractor/validate.py": { url: "invoice_extractor/validate.py" },
+      "invoice_extractor/export.py": { url: "invoice_extractor/export.py" },
+      "invoice_extractor/samples.py": { url: "invoice_extractor/samples.py" },
+      "samples/previews/brightclean-BC-3391.pdf.jpg": { url: "samples/previews/brightclean-BC-3391.pdf.jpg" },
+      "samples/previews/caffe-roma-receipt.jpg.jpg": { url: "samples/previews/caffe-roma-receipt.jpg.jpg" },
+      "samples/previews/druckerei-weber-RE-2026-0893.pdf.jpg": { url: "samples/previews/druckerei-weber-RE-2026-0893.pdf.jpg" },
+      "samples/previews/northwind-INV-20417.pdf.jpg": { url: "samples/previews/northwind-INV-20417.pdf.jpg" },
+      "samples/previews/scan-northwind-copy.png.jpg": { url: "samples/previews/scan-northwind-copy.png.jpg" },
+      "samples/previews/stratus-cloud-SC-118204.pdf.jpg": { url: "samples/previews/stratus-cloud-SC-118204.pdf.jpg" },
+    },
+    streamlitConfig: {
+      "theme.base": "dark",
+      "theme.primaryColor": "#7f9cf5",
+      "theme.backgroundColor": "#0b0b10",
+      "theme.secondaryBackgroundColor": "#15151d",
+      "theme.textColor": "#ececf1",
+      "client.toolbarMode": "viewer",
+    },
+  },
+  document.getElementById("root"),
+);
+</script>
+</body>
+</html>

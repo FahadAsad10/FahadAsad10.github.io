@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lead Qualifier · live demo</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fahadasad10.github.io/lead-qualifier/">
+<meta property="og:title" content="Lead Qualifier: every inbound lead read, scored and answered">
+<meta property="og:description" content="Twenty sample leads read by Claude, scored by transparent rules, with reply deadlines and first-reply drafts. Tune the scoring live. Runs in your browser.">
+<meta property="og:image" content="https://fahadasad10.github.io/assets/lead-qualifier.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Live demo of Lead Qualifier by Fahad Asad: Claude reads inbound leads and drafts the first reply, transparent rules score and route them, and you export to your CRM. Runs in your browser with Python (Streamlit via stlite).">
+<link rel="icon" href="../favicon.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.0/build/stlite.css">
+<style>
+  html, body { margin: 0; background: #0b0b10; color: #ececf1; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .bar { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid #24242f; font-size: 14px; }
+  .bar a { color: #f5b971; text-decoration: none; }
+  .bar a:hover { text-decoration: underline; }
+  .bar span { color: #9a9aab; }
+  #boot { padding: 48px 16px; text-align: center; color: #9a9aab; }
+  #boot b { color: #ececf1; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="../">← Fahad Asad</a>
+  <span>Runs fully in your browser (Python via WebAssembly). First load takes about a minute.</span>
+  <a href="https://github.com/FahadAsad10/lead-qualifier" target="_blank" rel="noopener">Source on GitHub ↗</a>
+</div>
+<div id="root"><div id="boot"><b>🎯 Lead Qualifier</b><br>Loading Python and this week's 20 sample leads in your browser…</div></div>
+<script type="module">
+import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.0/build/stlite.js";
+mount(
+  {
+    entrypoint: "app.py",
+    requirements: ["pandas", "pydantic", "plotly"],
+    files: {
+      "app.py": { url: "app.py" },
+      "lead_qualifier/__init__.py": { url: "lead_qualifier/__init__.py" },
+      "lead_qualifier/enrich.py": { url: "lead_qualifier/enrich.py" },
+      "lead_qualifier/export.py": { url: "lead_qualifier/export.py" },
+      "lead_qualifier/heuristic.py": { url: "lead_qualifier/heuristic.py" },
+      "lead_qualifier/intake.py": { url: "lead_qualifier/intake.py" },
+      "lead_qualifier/qualify.py": { url: "lead_qualifier/qualify.py" },
+      "lead_qualifier/samples.py": { url: "lead_qualifier/samples.py" },
+      "lead_qualifier/schema.py": { url: "lead_qualifier/schema.py" },
+      "lead_qualifier/score.py": { url: "lead_qualifier/score.py" },
+    },
+    streamlitConfig: {
+      "theme.base": "dark",
+      "theme.primaryColor": "#f5b971",
+      "theme.backgroundColor": "#0b0b10",
+      "theme.secondaryBackgroundColor": "#15151d",
+      "theme.textColor": "#ececf1",
+      "client.toolbarMode": "viewer",
+    },
+  },
+  document.getElementById("root"),
+);
+</script>
+</body>
+</html>
